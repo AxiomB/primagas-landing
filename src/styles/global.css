@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap) format('wght');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap) format('wght');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap) format('wght');
+}
+
+@theme {
+  --font-brand: "Montserrat", sans-serif;
+
+  --color-brand: #df2b2a;
+  --color-white: #ffffff;
+  --color-dark: #444444;
+  --color-dark: #141115;
+  --color-light: #cfc7d2;
+
+  --color-brand-background: #050505;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-background);
+    color: #ffffff;
+    font-family: var(--font-inter);
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    font-synthesis: none;
+
+    -webkit-text-size-adjust: 100%;
+  }
+
+  svg {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+}
