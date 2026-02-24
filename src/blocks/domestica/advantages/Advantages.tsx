@@ -5,21 +5,22 @@ import React from 'react';
 
 export const AdvantagesBlockComponent: React.FC = ({
     title,
-    domesticadvantages,
+    advantages,
 }: any) => {
 
-    const advantages = domesticadvantages || [];
+    console.log(advantages);
+    const domadvantages = advantages || [];
 
     return (
         <section id="ventajas" className="py-24 bg-gray-50">
             <section className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-black text-dark uppercase tracking-tight">
                         {title}
                     </h2>
                 </div>
                 <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {advantages.map((advantage: any, i: number) => {
+                    {domadvantages.map((advantage: any, i: number) => {
                         return (
                             <DomesticAdvantagesComponent
                                 key={i}

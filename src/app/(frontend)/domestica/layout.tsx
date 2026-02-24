@@ -7,6 +7,7 @@ import Script from 'next/script'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Metadata } from 'next'
 import { ModalController } from '@/components/ModalController';
+import { HeaderComponent } from '@/components/Header';
 
 export async function generateMetadata(): Promise<Metadata> {
   const payload = await getPayload({ config: configPromise })
@@ -41,6 +42,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       </head>
       {settings.gtmId && <GoogleTagManager gtmId={settings.gtmId} />}
       <body className='overflow-x-hidden'>
+        <HeaderComponent></HeaderComponent>
         <main>
           {children}
         </main>

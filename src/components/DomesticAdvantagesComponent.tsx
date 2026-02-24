@@ -10,9 +10,9 @@ export const DomesticAdvantagesComponent: React.FC<{ title: string, backgroundIm
             className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm"
         >
             <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center mb-6">
-                <img src={backgroundImage} alt='image' />
+                <img src={backgroundImage.url} alt='image' />
             </div>
-            <h3 className="font-bold text-lg mb-4 leading-tight">{title}</h3>
+            <h3 className="font-bold text-lg mb-4 text-dark leading-tight">{title}</h3>
             <p className="text-sm text-gray-500 leading-relaxed">{content}</p>
         </motion.div>
     );

@@ -52,10 +52,11 @@ export const HeroBlockComponent: React.FC = ({
                 </div>
             </section>
 
-            {/* Feature Bar */}
-            <section className="flex">
-                <div className="bg-red-600 p-8 flex items-center justify-center gap-6 text-white">
-                    <img className="w-16 h-16" src="/assets/horeca/icon-piggybank" alt='piggybank-icon' />
+            <section className="bg-red-600 flex flex-grow">
+                <div className="p-8 flex items-center justify-center gap-6 text-white min-w-[50%]">
+                </div>
+                <div className="p-8 flex items-center justify-center gap-6 text-white min-w-[50%]">
+                    <img className="w-16 h-16" src="assets/domestica/icon-piggybank.png" alt='piggybank-icon' />
                     <div>
                         <p className="text-lg font-light">{downBoxtext}</p>
                         <h3 className="text-3xl font-black leading-tight">{downBoxtextSecond}</h3>
