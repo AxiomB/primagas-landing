@@ -22,6 +22,10 @@ const MODAL_CONTENT = {
     conditionsDomestic: {
         title: 'Conditions Domestica',
         content: 'Our terms and conditions go here...'
+    },
+    thankyou: {
+        title: 'Gracias',
+        content: 'Gracias te llamaremos pronto'
     }
 }
 
@@ -30,12 +34,10 @@ export const ModalController = () => {
     const router = useRouter()
     const pathname = usePathname()
 
-    // 1. Get the value of 'modal' from the URL
     const modalType = searchParams.get('modal') as keyof typeof MODAL_CONTENT | null
 
     if (!modalType || !MODAL_CONTENT[modalType]) return null
 
-    // 2. Function to close the modal by removing the param
     const closeModal = () => {
         router.push(pathname, { scroll: false })
     }
@@ -44,7 +46,6 @@ export const ModalController = () => {
 
     return (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-            {/* Backdrop click to close */}
             <div className="absolute inset-0" onClick={closeModal} />
 
             <div className="relative bg-white w-full max-w-lg p-8 rounded-2xl shadow-2xl animate-in fade-in zoom-in duration-200">
