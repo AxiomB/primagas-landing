@@ -1,4 +1,5 @@
 'use client'
+
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -19,28 +20,24 @@ export const FooterComponent = () => {
           <div className="flex gap-8 text-xs font-medium text-gray-400 uppercase tracking-widest">
             <Link
               href="?modal=privacy"
-              target='_blank'
               className="hover:text-pink transition-colors"
             >
               Política de privacidad
             </Link>
             <Link
               href="?modal=cookies"
-              target='_blank'
               className="hover:text-pink transition-colors"
             >
               Politica de Cookies
             </Link>
             <Link
               href="?modal=legal"
-              target='_blank'
               className="hover:text-pink transition-colors"
             >
               Aviso Legal
             </Link>
             <Link
               href="?modal=conditions"
-              target='_blank'
               className="hover:text-pink transition-colors"
             >
               Condiciones de la oferta

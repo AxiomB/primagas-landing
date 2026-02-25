@@ -1,14 +1,26 @@
 'use client'
 import { useSearchParams, useRouter, usePathname } from 'next/navigation'
-import { X } from 'lucide-react' // or any icon library
+import { X } from 'lucide-react'
 
 const MODAL_CONTENT = {
     privacy: {
         title: 'Privacy Policy',
         content: 'Our privacy policy details go here...'
     },
-    terms: {
+    cookies: {
         title: 'Terms of Service',
+        content: 'Our terms and conditions go here...'
+    },
+    legal: {
+        title: 'Terms of Service',
+        content: 'Our terms and conditions go here...'
+    },
+    conditionsHoreca: {
+        title: 'Conditions Horeca',
+        content: 'Our terms and conditions go here...'
+    },
+    conditionsDomestic: {
+        title: 'Conditions Domestica',
         content: 'Our terms and conditions go here...'
     }
 }
@@ -38,12 +50,12 @@ export const ModalController = () => {
             <div className="relative bg-white w-full max-w-lg p-8 rounded-2xl shadow-2xl animate-in fade-in zoom-in duration-200">
                 <button
                     onClick={closeModal}
-                    className="absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-full"
+                    className="text-dark absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-full"
                 >
                     <X size={20} />
                 </button>
 
-                <h2 className="text-2xl font-bold mb-4">{title}</h2>
+                <h2 className="text-dark text-2xl font-bold mb-4">{title}</h2>
                 <div className="text-slate-600 leading-relaxed">
                     {content}
                 </div>
