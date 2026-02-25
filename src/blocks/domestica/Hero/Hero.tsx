@@ -1,8 +1,8 @@
 'use client'
 
-import { CallMeHorecaComponent } from '@/components/CallMeHorecaComponent';
 import React from 'react';
 import { motion } from 'motion/react';
+import { CallMeDomesticaComponent } from '@/components/CallMeDomesticaComponent';
 
 export const HeroBlockComponent: React.FC = ({
     backgroundImage,
@@ -15,7 +15,7 @@ export const HeroBlockComponent: React.FC = ({
 }: any) => {
     return (
         <section id="hero-header">
-            <section className="relative min-h-[600px] flex items-center overflow-hidden">
+            <section className="relative max-h-[60dvh] flex items-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
                         src={backgroundImage.url}
@@ -23,7 +23,6 @@ export const HeroBlockComponent: React.FC = ({
                         className="w-full h-full object-cover"
                         referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-black/40 md:bg-gradient-to-r md:from-black/60 md:to-transparent"></div>
                 </div>
 
                 <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full grid md:grid-cols-2 gap-12 items-center py-16">
@@ -33,10 +32,10 @@ export const HeroBlockComponent: React.FC = ({
                         transition={{ duration: 0.6 }}
                         className="text-white"
                     >
-                        <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6">
+                        <h1 className="text-3xl md:text-5xl font-black mb-4">
                             {mainHeader}
                         </h1>
-                        <p className="text-xl md:text-2xl font-light max-w-md leading-relaxed">
+                        <p className="text-xl md:text-xl font-light max-w-md">
                             {subHeader}
                         </p>
                     </motion.div>
@@ -45,17 +44,18 @@ export const HeroBlockComponent: React.FC = ({
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-md ml-auto"
+                        className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-xs ml-auto"
                     >
-                        <CallMeHorecaComponent number={facebooknumber}></CallMeHorecaComponent>
+                        <CallMeDomesticaComponent number={facebooknumber}></CallMeDomesticaComponent>
                     </motion.div>
                 </div>
             </section>
 
             <section className="bg-red-600 flex flex-grow">
-                <div className="p-8 flex items-center justify-center gap-6 text-white min-w-[50%]">
+                <div className="p-8 flex items-center justify-center gap-6 text-white min-w-[50%] max-h-[20dvh]">
+                    <img className="h-90 w-142 relative -top-40 mb-[-8rem]" src="assets/domestica/tanque-banner.png" alt='piggybank-icon' />
                 </div>
-                <div className="p-8 flex items-center justify-center gap-6 text-white min-w-[50%]">
+                <div className="p-8 flex items-center justify-center gap-6 text-white min-w-[50%] max-h-[20dvh]">
                     <img className="w-16 h-16" src="assets/domestica/icon-piggybank.png" alt='piggybank-icon' />
                     <div>
                         <p className="text-lg font-light">{downBoxtext}</p>

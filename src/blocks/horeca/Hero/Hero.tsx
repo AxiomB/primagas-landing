@@ -24,7 +24,6 @@ export const HeroBlockComponent: React.FC = ({
                         className="w-full h-full object-cover"
                         referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-black/40 md:bg-gradient-to-r md:from-black/60 md:to-transparent"></div>
                 </div>
                 <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full grid md:grid-cols-2 gap-12 items-center py-16">
                     <motion.div

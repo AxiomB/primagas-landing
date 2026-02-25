@@ -22,10 +22,10 @@ export const CallMeHorecaComponent: React.FC<{ number: string }> = ({ number }: 
             <div className="p-8">
                 <div className="flex items-start gap-4 mb-6">
                     <div className="bg-red-50 p-3 rounded-full">
-                        <img className='w-6 h-6' src='/assets/horeca/icon-phone'></img>
+                        <img className='w-6 h-6' src='/assets/horeca/icon-phone.png'></img>
                     </div>
                     <div>
-                        <h3 className="font-bold text-lg leading-tight">O déjanos tu número y te llamamos en unos minutos</h3>
+                        <p className="text-lg text-dark leading-tight">O déjanos tu número <span className='font-bold'>y te llamamos en unos minutos</span></p>
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@ export const CallMeHorecaComponent: React.FC<{ number: string }> = ({ number }: 
                     <input
                         type="tel"
                         placeholder="Introduce tu número*"
-                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all"
+                        className="text-dark w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all"
                         value={inputNumber}
                         onChange={(e) => setInputNumber(e.target.value)}
                     />
