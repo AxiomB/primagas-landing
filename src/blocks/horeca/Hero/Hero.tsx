@@ -26,28 +26,31 @@ export const HeroBlockComponent: React.FC = ({
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent" />
                 </div>
-                <div className="relative z-10 max-w-7xl px-6 md:px-12 w-full grid md:grid-cols-2 gap-12 items-center py-16">
+                <div className="relative z-10 max-w-7xl px-6 md:px-12 w-full grid md:grid-cols-2 gap-18 items-center py-16">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="text-white"
+                        className="text-white text-center lg:text-left"
                     >
-                        <h1 className="text-5xl md:text-7xl font-black text-brand mb-6 mr-6">
+                        <h1 className="text-brand text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-black leading-[1.2] mb-8 tracking-tighter">
                             {mainHeader}
                         </h1>
-                        <p className="text-xl md:text-xl max-w-[22dvw] leading-6">
+                        <p className="text-lg md:text-xl lg:text-2xl font-light max-w-md mx-auto lg:mx-0 leading-relaxed text-gray-100">
                             {subHeader}
                         </p>
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-md ml-[15dvw]"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="flex justify-center lg:justify-end"
                     >
-                        <CallMeHorecaComponent number={facebooknumber}></CallMeHorecaComponent>
+                        <div className="w-full max-w-xs bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+                            <CallMeHorecaComponent number={facebooknumber} />
+                        </div>
                     </motion.div>
                 </div>
             </section>
