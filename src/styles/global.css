@@ -32,11 +32,12 @@
 
   --color-brand: #df2b2a;
   --color-white: #ffffff;
+  --color-grey: #5b5b66;
   --color-dark: #444444;
   --color-dark: #141115;
   --color-light: #cfc7d2;
 
-  --color-brand-background: #050505;
+  --color-brand-background: #ffffff;
 }
 
 @layer base {

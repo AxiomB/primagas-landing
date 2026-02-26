@@ -12,14 +12,14 @@ export const SubfooterBlockComponent: React.FC = ({
 }: any) => {
     return (
         <section id="subfooter" className="py-20 px-6 md:px-12 bg-white">
-            <div className="max-w-4xl mx-auto">
-                <h2 className="text-2xl md:text-3xl font-black text-brand mb-8 leading-tight">
+            <div className="max-w-6xl mx-auto">
+                <h2 className="text-2xl md:text-3xl font-bold text-brand mb-8 leading-tight">
                     {mainHeader}
                 </h2>
-                <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+                <div className="space-y-6 text-lg text-gray-700 leading-tight">
                     <RichText data={firstParagraph} converters={JsxConverters} />
                     <RichText data={secondParagraph} converters={JsxConverters} />
-                    <p className="text-brand font-black text-xl">{endText}</p>
+                    <p className="text-brand font-bold text-xl">{endText}</p>
                 </div>
             </div>
         </section>

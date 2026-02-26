@@ -16,7 +16,7 @@ export const HorecaBenefitsComponent: React.FC<{ title: string, backgroundImage:
                 <h3 className={`text-xl font-black mb-4 leading-tight ${!isRed ? 'text-brand' : ''}`}>
                     {title}
                 </h3>
-                <p className={`text-sm leading-relaxed ${isRed ? 'opacity-90' : 'text-gray-600'}`}>
+                <p className={`text-md leading-tight ${isRed ? 'opacity-90' : 'text-brand'}`}>
                     {content}
                 </p>
             </div>

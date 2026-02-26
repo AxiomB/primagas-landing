@@ -12,7 +12,7 @@ export const StepsBlockComponent: React.FC = ({
     const steps = domesticsteps || [];
 
     return (
-        <section id="steps" className="bg-white/90 py-24">
+        <section id="steps" className="bg-grey/20 py-24">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl text-dark font-bold uppercase tracking-tight">

@@ -14,18 +14,18 @@ export const CallMeHorecaComponent: React.FC<{ number: string }> = ({ number }: 
     return (
         <section>
             <div className="bg-brand p-6 text-white text-center">
-                <p className="text-sm uppercase tracking-widest mb-1">Llama para informarte</p>
-                <h2 className="text-4xl font-black mb-1">{number}</h2>
-                <p className="text-xs opacity-80 italic">Solo para nuevos clientes</p>
+                <p className="text-sm tracking-widest mb-1">Llama para informarte</p>
+                <h2 className="text-3xl text-dark font-black">{number}</h2>
+                <p className="text-sm">Solo para nuevos clientes</p>
             </div>
 
             <div className="p-8">
                 <div className="flex items-start gap-4 mb-6">
-                    <div className="bg-red-50 p-3 rounded-full">
-                        <img className='w-6 h-6' src='/assets/horeca/icon-phone.png'></img>
+                    <div className="bg-red-50 pt-1 pb-3 px-3 rounded-full">
+                        <img className='w-14 h-12' src='/assets/horeca/icon-phone.png'></img>
                     </div>
                     <div>
-                        <p className="text-lg text-dark leading-tight">O déjanos tu número <span className='font-bold'>y te llamamos en unos minutos</span></p>
+                        <p className="text-lg text-dark leading-tight">O Déjanos tu número<br></br> <span className='font-bold'>y te llamamos en<br></br> unos minutos</span></p>
                     </div>
                 </div>
 
@@ -48,14 +48,14 @@ export const CallMeHorecaComponent: React.FC<{ number: string }> = ({ number }: 
                     </label>
 
                     <button
-                        className="w-full bg-brand hover:bg-red-700 text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition-transform active:scale-[0.98]"
+                        className="w-full bg-brand hover:bg-red-700 text-white font-bold py-4 rounded-4xl flex flex-row align-items-center items-center justify-center gap-2 transition-transform active:scale-[0.98]"
                         onClick={sendNumber}
                     >
-                        Llamadme
-                        <ChevronRight className="w-5 h-5" />
+                        <span className='text-lg'>Llamadme</span>
+                        <ChevronRight className="w-6 h-6 pt-1" />
                     </button>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }

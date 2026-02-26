@@ -2,7 +2,8 @@ import React from 'react'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { notFound } from 'next/navigation'
-import { RenderDomestica } from '../../../blocks/renders/RenderDomestica'
+import { RenderDomestica } from '@/blocks/renders/RenderDomestica'
+
 
 export const dynamic = 'force-dynamic'
 

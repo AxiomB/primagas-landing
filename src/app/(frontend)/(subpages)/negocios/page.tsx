@@ -2,7 +2,7 @@ import React from 'react'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { notFound } from 'next/navigation'
-import { RenderHoreca } from '../../../blocks/renders/RenderHoreca'
+import { RenderHoreca } from '@/blocks/renders/RenderHoreca'
 
 export const dynamic = 'force-dynamic'
 

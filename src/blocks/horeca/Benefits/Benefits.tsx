@@ -13,9 +13,9 @@ export const BenefitsBlockComponent: React.FC = ({
 
     return (
         <section id="benefits-header">
-            <section className="bg-gray-50 py-20 px-6 md:px-12">
+            <section className="bg-grey/20 py-20 px-6 md:px-12">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-xl md:text-3xl font-black text-dark text-center mb-16 tracking-tight">
+                    <h2 className="text-xl md:text-3xl font-bold text-dark text-center mb-16 tracking-tight">
                         {mainHeader}
                     </h2>
 
