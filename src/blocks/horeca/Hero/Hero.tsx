@@ -49,7 +49,7 @@ export const HeroBlockComponent: React.FC = ({
                         className="flex justify-center lg:justify-end"
                     >
                         <div className="w-full max-w-xs bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
-                            <CallMeHorecaComponent number={facebooknumber} />
+                            <CallMeHorecaComponent facebookNumber={facebooknumber} googleNumber={googlenumber} />
                         </div>
                     </motion.div>
                 </div>

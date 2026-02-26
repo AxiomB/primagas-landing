@@ -23,6 +23,7 @@ export const BenefitsBlockComponent: React.FC = ({
                         {benefits.map((benefit: any, index: number) => {
                             return (
                                 <HorecaBenefitsComponent
+                                    key={index}
                                     title={benefit.title}
                                     backgroundImage={benefit.backgroundImage}
                                     content={benefit.content}

@@ -75,6 +75,7 @@ export interface Config {
     domesticconditions: Domesticcondition;
     domesticfaqs: Domesticfaq;
     domesticsteps: Domesticstep;
+    voicebcalls: Voicebcall;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -90,6 +91,7 @@ export interface Config {
     domesticconditions: DomesticconditionsSelect<false> | DomesticconditionsSelect<true>;
     domesticfaqs: DomesticfaqsSelect<false> | DomesticfaqsSelect<true>;
     domesticsteps: DomesticstepsSelect<false> | DomesticstepsSelect<true>;
+    voicebcalls: VoicebcallsSelect<false> | VoicebcallsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -285,6 +287,18 @@ export interface Domesticstep {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "voicebcalls".
+ */
+export interface Voicebcall {
+  id: number;
+  channel: string;
+  phone: string;
+  result: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -338,6 +352,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'domesticsteps';
         value: number | Domesticstep;
+      } | null)
+    | ({
+        relationTo: 'voicebcalls';
+        value: number | Voicebcall;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -486,6 +504,17 @@ export interface DomesticstepsSelect<T extends boolean = true> {
   backgroundImage?: T;
   header?: T;
   content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "voicebcalls_select".
+ */
+export interface VoicebcallsSelect<T extends boolean = true> {
+  channel?: T;
+  phone?: T;
+  result?: T;
   updatedAt?: T;
   createdAt?: T;
 }

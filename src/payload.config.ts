@@ -16,6 +16,7 @@ import { DomesticAdvantages } from './collections/DomesticAdvantage'
 import { DomesticConditions } from './collections/DomesticConditions'
 import { DomesticFaqs } from './collections/DomesticFaqs'
 import { DomesticSteps } from './collections/DomesticSteps'
+import { VoiceBCalls } from './collections/VoiceBCalls'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -27,7 +28,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, StaticPages, HorecaBenefits, DomesticAdvantages, DomesticConditions, DomesticFaqs, DomesticSteps],
+  collections: [Users, Media, StaticPages, HorecaBenefits, DomesticAdvantages, DomesticConditions, DomesticFaqs, DomesticSteps, VoiceBCalls],
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => [
       ...defaultFeatures,

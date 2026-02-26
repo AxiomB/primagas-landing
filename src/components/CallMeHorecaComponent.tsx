@@ -1,21 +1,45 @@
 'use client'
-import { Check, ChevronRight } from 'lucide-react';
+import { useUtms } from '@/hooks/useUtem';
+import { Check, ChevronRight, Phone } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
-export const CallMeHorecaComponent: React.FC<{ number: string }> = ({ number }: { number: string }) => {
+export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNumber: string }> = ({ facebookNumber, googleNumber }: { facebookNumber: string, googleNumber: string }) => {
 
+    const utms = useUtms();
+    const router = useRouter();
+    const pathname = usePathname();
+    const [displayNumber, setDisplayNumber] = useState<string>(utms?.utm_source === 'facebook' ? facebookNumber : googleNumber);
     const [inputNumber, setInputNumber] = useState<string>("");
     const [accepted, setAccepted] = useState<boolean>(false);
 
-    const sendNumber = () => {
+    const sendNumber = async () => {
+        try {
+            const res = await fetch('/api/call', {
+                method: 'POST',
+                body: JSON.stringify({
+                    channel: utms?.utm_source === 'facebook' ? facebookNumber : googleNumber,
+                    phone: inputNumber
+                }),
+                headers: { 'Content-Type': 'application/json' },
+            })
 
+            if (res.ok) {
+                router.push(pathname + '?modal=thankyou', { scroll: false })
+            } else {
+                throw new Error()
+            }
+        }
+        catch (error) {
+            console.error(error);
+        }
     }
 
     return (
         <section>
             <div className="bg-brand p-6 text-white text-center">
                 <p className="text-sm tracking-widest mb-1">Llama para informarte</p>
-                <h2 className="text-3xl text-dark font-black">{number}</h2>
+                <h2 className="text-3xl text-dark font-black">{displayNumber}</h2>
                 <p className="text-sm">Solo para nuevos clientes</p>
             </div>
 

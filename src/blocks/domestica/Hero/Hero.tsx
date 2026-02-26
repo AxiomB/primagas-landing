@@ -45,7 +45,7 @@ export const HeroBlockComponent: React.FC = ({
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-sm md:max-w-xs mx-auto md:ml-auto w-full"
                     >
-                        <CallMeDomesticaComponent number={facebooknumber} />
+                        <CallMeDomesticaComponent facebookNumber={facebooknumber} googleNumber={googlenumber} />
                     </motion.div>
                 </div>
             </section>

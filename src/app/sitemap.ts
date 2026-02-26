@@ -7,7 +7,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const payload = await getPayload({ config: configPromise })
     const landingPage = await payload.findGlobal({
-        slug: 'landing-page',
+        slug: 'domesticapage',
+    })
+    const horecaPage = await payload.findGlobal({
+        slug: 'horecapage'
     })
     const staticPages = await payload.find({
         collection: 'staticpages',
@@ -35,13 +38,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: `${baseUrl}`,
         lastModified: landingPage?.updatedAt || new Date(),
         changeFrequency: "monthly" as const,
-        alternatives: {
-            languages: {
-                en: `${baseUrl}/en`,
-                es: `${baseUrl}/es`,
-                'x-default': `${baseUrl}/en`,
-            }
-        },
+        priority: 1,
+    });
+
+    pages.push({
+        url: `${baseUrl}/hogar`,
+        lastModified: landingPage?.updatedAt || new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 1,
+    });
+
+    pages.push({
+        url: `${baseUrl}/negocios`,
+        lastModified: horecaPage?.updatedAt || new Date(),
+        changeFrequency: "monthly" as const,
         priority: 1,
     });
 

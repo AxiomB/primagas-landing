@@ -1,22 +1,46 @@
 'use client'
 
+import { useUtms } from '@/hooks/useUtem';
 import { Check, ChevronRight } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
-export const CallMeDomesticaComponent: React.FC<{ number: string }> = ({ number }: { number: string }) => {
+export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, googleNumber: string }> = ({ facebookNumber, googleNumber }: { facebookNumber: string, googleNumber: string }) => {
 
+    const utms = useUtms();
+    const router = useRouter();
+    const pathname = usePathname();
+    const [displayNumber, setDisplayNumber] = useState<string>(utms?.utm_source === 'facebook' ? facebookNumber : googleNumber);
     const [inputNumber, setInputNumber] = useState<string>("");
     const [accepted, setAccepted] = useState<boolean>(false);
 
-    const sendNumber = () => {
+    const sendNumber = async () => {
+        try {
+            const res = await fetch('/api/call', {
+                method: 'POST',
+                body: JSON.stringify({
+                    channel: utms?.utm_source === 'facebook' ? facebookNumber : googleNumber,
+                    phone: inputNumber
+                }),
+                headers: { 'Content-Type': 'application/json' },
+            })
 
+            if (res.ok) {
+                router.push(pathname + '?modal=thankyou', { scroll: false })
+            } else {
+                throw new Error()
+            }
+        }
+        catch (error) {
+            console.error(error);
+        }
     }
 
     return (
         <section>
             <div className="bg-brand p-6 text-white text-center">
                 <p className="text-sm text-dark font-bold tracking-widest mb-1">Llama para informarte</p>
-                <h2 className="text-3xl font-black">{number}</h2>
+                <h2 className="text-3xl font-black">{displayNumber}</h2>
                 <p className="text-sm text-dark font-bold">Solo para nuevos clientes</p>
                 <p className="text-lg text-white text-white">¡Date prisa, solo para las</p>
                 <span className="text-lg text-white text-white font-bold">50 primeras instalaciones!</span>
