@@ -46,10 +46,9 @@ export const ConditionsBlocksComponent: React.FC = ({
                         </div>
                         <div className="text-dark flex-1">
                             <h3 className="text-brand font-bold mb-2 text-lg">Comodidad y tranquilidad:</h3>
-                            <ul className="space-y-2 text-sm">
-                                <li className="flex items-start gap-2"><span className="text-brand">-</span> <span className='text-lg'>Temperatura regulable en cada habitación.</span></li>
+                            <ul className="text-sm">
                                 <li className="flex items-start gap-2"><span className="text-brand">-</span> <span className='text-lg'>Agua caliente al instante y sin interrupciones.</span></li>
-                                <li className="flex items-start gap-2"><span className="text-brand">-</span> <span className='text-lg'>Cocinarás manteniendo el sabor y propiedades.</span></li>
+                                <li className="flex items-start gap-2"><span className="text-brand">-</span> <span className='text-lg'>Cocinarás manteniendo el sabor y propiedades de los alimentos.</span></li>
                             </ul>
                         </div>
                     </div>

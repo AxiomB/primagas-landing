@@ -16,7 +16,7 @@ export const DomesticAdvantagesComponent: React.FC<{ title: string, backgroundIm
                 backgroundRepeat: 'no-repeat'
             }}>
             </div>
-            <p className="text-sm text-gray-500 leading-relaxed"><span className="font-bold text-lg mb-4 text-dark leading-tight">{title} </span>{content}</p>
+            <p className="text-lg text-gray-500 leading-relaxed"><span className="font-bold text-lg mb-4 text-dark leading-tight">{title} </span>{content}</p>
         </motion.div>
     );
 }

@@ -38,13 +38,13 @@ export const ConditionsDomesticaModal: React.FC = () => {
                             presupuesto límite de 1.200€ para su instalación, e incluye OCA, legalización y puesta
                             en marcha (los gastos que sobrepasen dicho presupuesto irán a cargo del cliente); (ii)
                             Precio fijo durante 2026 de 1,55€/kg (impuestos no incluidos), siendo válido hasta el
-                            31/12/2026.
+                            31/12/2026
                         </p>
                         <p>
                             Durante el mes de diciembre de cada año, se informará del nuevo precio fijo para el
                             siguiente período (aplicable de enero a diciembre) y se podrá elegir entre la tarifa
                             variable o ese nuevo precio fijo anual determinado según mercado.
-                            Servicio Primaconfort: 9,95€/mes.
+                            Servicio Primaconfort: 9,95€/mes
                         </p>
                     </div>
                 </div>

@@ -12,7 +12,14 @@ export const FooterDomesticaComponent = () => {
             <img className='w-xs h-xs' src="/assets/img/LOGO-PRIMAGAS-ICON.svg" alt="Primagas Logo"></img>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-6 text-center text-sm font-medium text-gray-300 uppercase tracking-widest">
+          <div className="flex flex-col md:flex-row gap-6 text-center text-xs font-medium text-gray-300 uppercase tracking-widest">
+            <Link
+              href="https://s-sml.mtrbio.com/public/smartlink/primagas-espana"
+              target='_blank'
+              className="hover:text-pink transition-colors"
+            >
+              ESTUDIOS EFICIENCIA ENERGÉTICA
+            </Link>
             <Link
               href="https://www.primagas.es/privacidad"
               target='_blank'

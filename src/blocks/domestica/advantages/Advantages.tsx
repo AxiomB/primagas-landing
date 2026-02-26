@@ -19,7 +19,7 @@ export const AdvantagesBlockComponent: React.FC = ({
                         {title}
                     </h2>
                 </div>
-                <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {domadvantages.map((advantage: any, i: number) => {
                         return (
                             <DomesticAdvantagesComponent

@@ -1,7 +1,8 @@
 'use client'
 
 import { DomesticStepsComponent } from '@/components/DomesticStepsComponent';
-import React from 'react';
+import { InterestedModal } from '@/components/modals/InterestedModal';
+import React, { useState } from 'react';
 
 export const StepsBlockComponent: React.FC = ({
     title,
@@ -10,6 +11,16 @@ export const StepsBlockComponent: React.FC = ({
 }: any) => {
 
     const steps = domesticsteps || [];
+
+    const [activeModal, setActiveModal] = useState<boolean>(false);
+
+    const closeModal = () => {
+        setActiveModal(false);
+    }
+
+    const openModal = () => {
+        setActiveModal(true);
+    }
 
     return (
         <section id="steps" className="bg-grey/20 py-24">
@@ -33,11 +44,15 @@ export const StepsBlockComponent: React.FC = ({
                     })}
                 </div>
                 <div className="mt-16 text-center">
-                    <button className="bg-brand text-white font-bold px-12 py-4 rounded-full hover:bg-red-700 transition-all shadow-xl uppercase tracking-widest text-sm">
+                    <button onClick={openModal} className="w-[16dvw] bg-brand text-white px-2 py-3 rounded-full hover:bg-red-700 transition-all shadow-xl tracking-widest text-md">
                         {buttonText}
                     </button>
                 </div>
             </div>
+            {
+                activeModal ? <>
+                    <InterestedModal closeModal={closeModal}></InterestedModal>
+                </> : ""}
         </section>
     );
 };

@@ -29,12 +29,12 @@ export const HeroBlockComponent: React.FC = ({
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="text-white"
+                        className="text-white md:mb-10 lg:mb-10"
                     >
-                        <h1 className="text-3xl md:text-5xl font-black uppercase leading-tight">
+                        <h1 className="text-3xl md:text-5xl font-black uppercase leading-[1.2]">
                             {mainHeader}
                         </h1>
-                        <p className="mt-4 text-lg md:text-xl max-w-md">
+                        <p className="mt-4 text-xl md:text-xl max-w-md">
                             {subHeader}
                         </p>
                     </motion.div>
@@ -43,15 +43,17 @@ export const HeroBlockComponent: React.FC = ({
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-sm md:max-w-xs mx-auto md:ml-auto w-full"
+                        className="flex justify-center content-center lg:justify-end"
                     >
-                        <CallMeDomesticaComponent facebookNumber={facebooknumber} googleNumber={googlenumber} />
+                        <div className="w-full max-w-full md:max-w-[48dvw] lg:max-w-[24dvw] bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+                            <CallMeDomesticaComponent facebookNumber={facebooknumber} googleNumber={googlenumber} />
+                        </div>
                     </motion.div>
                 </div>
             </section>
 
             <section className="bg-brand flex flex-col md:flex-row items-center">
-                <div className="hidden md:flex p-8 items-center justify-center gap-6 text-white min-w-[50%] max-h-[20dvh]">
+                <div className="hidden md:flex p-8 items-center justify-center gap-6 text-white min-w-[50%] max-h-[14dvh]">
                     <img
                         className="h-90 w-142 relative -top-40 mb-[-8rem]"
                         src="assets/domestica/tanque-banner.png"

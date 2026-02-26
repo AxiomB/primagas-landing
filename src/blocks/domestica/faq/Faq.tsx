@@ -1,8 +1,7 @@
 'use client'
 
-import { DomesticConditionsComponent } from '@/components/DomesticConditionsComponent';
-import { DomesticFaqsComponent } from '@/components/DomesticFaqsComponent';
 import React from 'react';
+import { motion } from 'motion/react';
 
 export const FaqBlocksComponent: React.FC = ({
     domesticfaqs,
@@ -15,20 +14,29 @@ export const FaqBlocksComponent: React.FC = ({
             <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-dark uppercase tracking-tight">
-                        Preguntas Frecuentes
+                        ¿Qué es el glp?
                     </h2>
                 </div>
 
                 <div className='flex flex-col'>
-                    {faqs.map((faq: any, i: number) => {
-                        return (
-                            <DomesticFaqsComponent
-                                key={i}
-                                question={faq.question}
-                                content={faq.content}
-                            ></DomesticFaqsComponent>
-                        )
-                    })}
+                    <div className="border border-brand border-2 rounded-2xl overflow-hidden mb-6 py-2 px-2">
+                        <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                        >
+                            <div className="pl-10 pt-5 pb-5 bg-gray-50 text-gray-600 leading-relaxed border-t border-gray-200 flex flex-row gap-6">
+                                <div className="w-20 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold text-lg">?</div>
+                                <p className='text-2xl'>
+                                    <span className='font-bold'>El GLP (Gas Licuado del Petróleo)</span> es una mezcla de propano y butano que se almacena en estado
+                                    líquido y se utiliza como fuente de energía versátil y eficiente.<br></br>
+                                    En el ámbito <span className='font-bold'>doméstico</span>, se emplea para <span className='font-bold'>calefacción, agua caliente sanitaria y cocina</span>, ofreciendo un
+                                    calor rápido y estable. Es ideal para viviendas sin acceso a gas natural, proporcionando un suministro
+                                    seguro y continuo mediante depósito
+                                </p>
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -25,12 +25,12 @@ export const SubfooterBlockComponent: React.FC = ({
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="max-w-xl ml-auto"
+                    className="max-w-full ml-auto"
                 >
-                    <h2 className="text-5xl md:text-7xl font-black uppercase leading-none mb-6">
+                    <h2 className="max-w-[40dvw] ml-auto md:mr-[2rem] text-4xl md:text-7xl font-black uppercase leading-none mb-6">
                         {firstParagraph}
                     </h2>
-                    <p className="text-2xl font-black mb-8">{secondParagraph}</p>
+                    <p className="max-w-sm ml-auto text-3xl mb-8">{secondParagraph}</p>
                 </motion.div>
             </div>
         </section>

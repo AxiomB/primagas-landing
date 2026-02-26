@@ -31,12 +31,12 @@ export const HeroBlockComponent: React.FC = ({
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="text-white text-center lg:text-left"
+                        className="text-white text-center justify-center content-center lg:text-left max-w-full lg:max-w-sm"
                     >
-                        <h1 className="text-brand text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-black leading-[1.2] mb-8 tracking-tighter">
+                        <h1 className="text-brand text-2xl sm:text-2xl md:text-3xl lg:text-6xl font-black leading-[1] mb-8 tracking-tighter">
                             {mainHeader}
                         </h1>
-                        <p className="text-lg md:text-xl lg:text-2xl font-light max-w-md mx-auto lg:mx-0 leading-relaxed text-gray-100">
+                        <p className="text-center max-w-full text-lg max-w-xs md:2text-xl lg:text-2xl max-w-md mx-auto lg:mx-0 leading-tight text-gray-100">
                             {subHeader}
                         </p>
                     </motion.div>
@@ -46,9 +46,9 @@ export const HeroBlockComponent: React.FC = ({
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="flex justify-center lg:justify-end"
+                        className="flex justify-center content-center lg:justify-end"
                     >
-                        <div className="w-full max-w-xs bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+                        <div className="w-full max-w-full md:max-w-[48dvw] lg:max-w-[24dvw] bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
                             <CallMeHorecaComponent facebookNumber={facebooknumber} googleNumber={googlenumber} />
                         </div>
                     </motion.div>
