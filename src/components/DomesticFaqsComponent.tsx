@@ -9,16 +9,16 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 export const DomesticFaqsComponent: React.FC<{ question: string, content: any }> = ({ question, content }: { question: string, content: any }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className="border border-gray-200 rounded-xl overflow-hidden mb-4">
+        <div className="border border-brand border-2 rounded-2xl overflow-hidden mb-6">
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex items-center justify-between p-5 text-left bg-white hover:bg-gray-50 transition-colors"
             >
                 <div className="flex items-center gap-4">
-                    <div className="w-8 h-8 rounded-full bg-primagas-red text-white flex items-center justify-center font-bold text-lg">?</div>
+                    <div className="w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold text-lg">?</div>
                     <span className="font-semibold text-gray-800">{question}</span>
                 </div>
-                {isOpen ? <ChevronUp className="text-primagas-red" /> : <ChevronDown className="text-gray-400" />}
+                {isOpen ? <ChevronUp className="text-brand" /> : <ChevronDown className="text-brand" />}
             </button>
             <AnimatePresence>
                 {isOpen && (
@@ -28,7 +28,7 @@ export const DomesticFaqsComponent: React.FC<{ question: string, content: any }>
                         exit={{ height: 0, opacity: 0 }}
                         className="overflow-hidden"
                     >
-                        <div className="p-5 bg-gray-50 text-gray-600 leading-relaxed border-t border-gray-200">
+                        <div className="pl-10 pt-5 pb-5 pr-5 bg-gray-50 text-gray-600 leading-relaxed border-t border-gray-200">
                             <RichText
                                 data={content as any}
                                 converters={JsxConverters}

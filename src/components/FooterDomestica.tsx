@@ -4,7 +4,7 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
-export const FooterComponent = () => {
+export const FooterDomesticaComponent = () => {
   const pathname = usePathname()
 
   const currentYear = new Date().getFullYear();
@@ -17,7 +17,7 @@ export const FooterComponent = () => {
             <img className='w-xs h-xs' src="/assets/img/LOGO-PRIMAGAS-ICON.svg" alt="Primagas Logo"></img>
           </div>
 
-          <div className="flex gap-8 text-xs font-medium text-gray-400 uppercase tracking-widest">
+          <div className="flex flex-col md:flex-row gap-6 text-center text-sm font-medium text-gray-300 uppercase tracking-widest">
             <Link
               href="?modal=privacy"
               className="hover:text-pink transition-colors"

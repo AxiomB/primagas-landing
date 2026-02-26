@@ -12,10 +12,10 @@ export const StepsBlockComponent: React.FC = ({
     const steps = domesticsteps || [];
 
     return (
-        <section id="steps" className="py-24">
+        <section id="steps" className="bg-white/90 py-24">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight">
+                    <h2 className="text-3xl md:text-4xl text-dark font-bold uppercase tracking-tight">
                         {title}
                     </h2>
                 </div>
@@ -25,7 +25,7 @@ export const StepsBlockComponent: React.FC = ({
                             <DomesticStepsComponent
                                 key={i}
                                 stepNumber={step.stepNumber}
-                                title={step.title}
+                                title={step.header}
                                 backgroundImage={step.backgroundImage}
                                 content={step.content}
                             ></DomesticStepsComponent>
@@ -33,7 +33,7 @@ export const StepsBlockComponent: React.FC = ({
                     })}
                 </div>
                 <div className="mt-16 text-center">
-                    <button className="bg-primagas-red text-white font-bold px-12 py-4 rounded-full hover:bg-red-700 transition-all shadow-xl uppercase tracking-widest text-sm">
+                    <button className="bg-brand text-white font-bold px-12 py-4 rounded-full hover:bg-red-700 transition-all shadow-xl uppercase tracking-widest text-sm">
                         {buttonText}
                     </button>
                 </div>

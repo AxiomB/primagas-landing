@@ -12,8 +12,8 @@ export const HorecaBenefitsComponent: React.FC<{ title: string, backgroundImage:
             <div className="h-48 overflow-hidden relative">
                 <img src={backgroundImage.url} alt={title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
             </div>
-            <div className={`p-8 flex-grow ${isRed ? 'bg-red-600 text-white' : 'bg-white text-gray-800'}`}>
-                <h3 className={`text-xl font-black mb-4 leading-tight ${!isRed ? 'text-red-600' : ''}`}>
+            <div className={`p-8 flex-grow ${isRed ? 'bg-brand text-white' : 'bg-white text-gray-800'}`}>
+                <h3 className={`text-xl font-black mb-4 leading-tight ${!isRed ? 'text-brand' : ''}`}>
                     {title}
                 </h3>
                 <p className={`text-sm leading-relaxed ${isRed ? 'opacity-90' : 'text-gray-600'}`}>

@@ -52,12 +52,12 @@ export const HeroBlockComponent: React.FC = ({
             </section>
             <section className="grid md:grid-cols-2">
                 <div className="bg-white border-y md:border-y-0 md:border-r border-gray-100 p-8 flex items-center justify-center gap-6">
-                    <img className="w-16 h-16 text-red-600" src="/assets/horeca/icon-install.png" alt='install-icon' />
+                    <img className="w-16 h-16 text-brand" src="/assets/horeca/icon-install.png" alt='install-icon' />
                     <div>
-                        <h3 className="text-2xl font-black text-red-600 leading-tight">{leftBoxText}</h3>
+                        <h3 className="text-2xl font-black text-brand leading-tight">{leftBoxText}</h3>
                     </div>
                 </div>
-                <div className="bg-red-600 p-8 flex items-center justify-center gap-6 text-white">
+                <div className="bg-brand p-8 flex items-center justify-center gap-6 text-white">
                     <img className="w-16 h-16" src="/assets/horeca/icon-piggybank.png" alt='piggybank-icon' />
                     <div>
                         <p className="text-lg font-light">{rightBoxFirstText}</p>

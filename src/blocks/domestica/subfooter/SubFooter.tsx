@@ -15,13 +15,12 @@ export const SubfooterBlockComponent: React.FC = ({
                 <img
                     src={backgroundImage.url}
                     alt="Happy Couple"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-[60%_40%]"
                     referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-black/40" />
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 relative z-10 text-white text-right">
+            <div className="max-w-7xl mx-auto px-4 relative z-10 text-brand text-right">
                 <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -31,7 +30,7 @@ export const SubfooterBlockComponent: React.FC = ({
                     <h2 className="text-5xl md:text-7xl font-black uppercase leading-none mb-6">
                         {firstParagraph}
                     </h2>
-                    <p className="text-2xl font-light mb-8">{secondParagraph}</p>
+                    <p className="text-2xl font-black mb-8">{secondParagraph}</p>
                 </motion.div>
             </div>
         </section>

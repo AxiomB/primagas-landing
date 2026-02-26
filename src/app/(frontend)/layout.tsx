@@ -2,12 +2,12 @@ import React, { Suspense } from 'react'
 import '@/styles/global.css';
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
-import { FooterComponent } from '@/components/Footer';
 import Script from 'next/script'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Metadata } from 'next'
 import { ModalController } from '@/components/ModalController';
 import { HeaderComponent } from '@/components/Header';
+import { FooterDomesticaComponent } from '@/components/FooterDomestica';
 
 export async function generateMetadata(): Promise<Metadata> {
   const payload = await getPayload({ config: configPromise })
@@ -46,7 +46,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <main>
           {children}
         </main>
-        <FooterComponent></FooterComponent>
+        <FooterDomesticaComponent></FooterDomesticaComponent>
         <Suspense fallback={null}>
           <ModalController />
         </Suspense>

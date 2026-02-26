@@ -12,10 +12,10 @@ export const AdvantagesBlockComponent: React.FC = ({
     const domadvantages = advantages || [];
 
     return (
-        <section id="ventajas" className="py-24 bg-gray-50">
+        <section id="ventajas" className="py-24 bg-white">
             <section className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-black text-dark uppercase tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-bold text-dark uppercase tracking-tight">
                         {title}
                     </h2>
                 </div>

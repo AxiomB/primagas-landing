@@ -12,21 +12,24 @@ export const FaqBlocksComponent: React.FC = ({
 
     return (
         <section id="faq" className="py-24 bg-gray-50">
-            <div className="max-w-3xl mx-auto px-4">
+            <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-bold text-dark uppercase tracking-tight">
                         Preguntas Frecuentes
                     </h2>
                 </div>
 
-                {faqs.map((faq: any) => {
-                    return (
-                        <DomesticFaqsComponent
-                            question={faq.question}
-                            content={faq.content}
-                        ></DomesticFaqsComponent>
-                    )
-                })}
+                <div className='flex flex-col'>
+                    {faqs.map((faq: any, i: number) => {
+                        return (
+                            <DomesticFaqsComponent
+                                key={i}
+                                question={faq.question}
+                                content={faq.content}
+                            ></DomesticFaqsComponent>
+                        )
+                    })}
+                </div>
             </div>
         </section>
     );

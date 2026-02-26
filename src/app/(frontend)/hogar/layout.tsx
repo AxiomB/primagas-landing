@@ -2,20 +2,20 @@ import React, { Suspense } from 'react'
 import '@/styles/global.css';
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
-import { FooterComponent } from '@/components/Footer';
 import Script from 'next/script'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Metadata } from 'next'
-import { HeaderComponent } from '@/components/Header';
 import { ModalController } from '@/components/ModalController';
+import { HeaderComponent } from '@/components/Header';
+import { FooterDomesticaComponent } from '@/components/FooterDomestica';
 
 export async function generateMetadata(): Promise<Metadata> {
   const payload = await getPayload({ config: configPromise })
   const settings = await payload.findGlobal({ slug: 'site-settings' })
 
   return {
-    description: 'CÁMBIATE AL PRECIO FIJO DEL GAS*',
-    title: 'Primagas | Profesional',
+    description: 'QUE LA ENERGÍA NUNCA FALTE EN TU HOGAR, VIVAS DONDE VIVAS.',
+    title: 'Primagas | Oferta Doméstica',
     verification: {
       google: settings.googleVerificationId,
     },
@@ -46,7 +46,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <main>
           {children}
         </main>
-        <FooterComponent></FooterComponent>
+        <FooterDomesticaComponent></FooterDomesticaComponent>
         <Suspense fallback={null}>
           <ModalController />
         </Suspense>

@@ -13,7 +13,7 @@ export const CallMeHorecaComponent: React.FC<{ number: string }> = ({ number }: 
 
     return (
         <section>
-            <div className="bg-red-600 p-6 text-white text-center">
+            <div className="bg-brand p-6 text-white text-center">
                 <p className="text-sm uppercase tracking-widest mb-1">Llama para informarte</p>
                 <h2 className="text-4xl font-black mb-1">{number}</h2>
                 <p className="text-xs opacity-80 italic">Solo para nuevos clientes</p>
@@ -39,16 +39,16 @@ export const CallMeHorecaComponent: React.FC<{ number: string }> = ({ number }: 
                     />
 
                     <label className="flex items-start gap-3 cursor-pointer group">
-                        <div className={`mt-1 w-5 h-5 rounded border flex items-center justify-center transition-colors ${accepted ? 'bg-red-600 border-red-600' : 'border-gray-300 group-hover:border-red-400'}`} onClick={() => setAccepted(!accepted)}>
+                        <div className={`mt-1 w-5 h-5 rounded border flex items-center justify-center transition-colors ${accepted ? 'bg-brand border-brand' : 'border-gray-300 group-hover:border-red-400'}`} onClick={() => setAccepted(!accepted)}>
                             {accepted && <Check className="w-3 h-3 text-white" />}
                         </div>
                         <span className="text-xs text-gray-500 leading-tight">
-                            Acepto la <a href="#" className="underline hover:text-red-600">política de privacidad</a> y <a href="#" className="underline hover:text-red-600">aviso legal</a>.
+                            Acepto la <a href="#" className="underline hover:text-brand">política de privacidad</a> y <a href="#" className="underline hover:text-brand">aviso legal</a>.
                         </span>
                     </label>
 
                     <button
-                        className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition-transform active:scale-[0.98]"
+                        className="w-full bg-brand hover:bg-red-700 text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition-transform active:scale-[0.98]"
                         onClick={sendNumber}
                     >
                         Llamadme
