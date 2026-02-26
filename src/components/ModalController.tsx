@@ -1,31 +1,33 @@
 'use client'
+
 import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 import { X } from 'lucide-react'
+import { CTAModal } from './modals/CTAModal'
+import { ThankYouModal } from './modals/ThankYouModal'
+import { CookiesModal } from './modals/CookiesModal'
+import { ConditionsHorecaModal } from './modals/ConditionsHorecaModal'
+import { ConditionsDomesticaModal } from './modals/ConditionsDomesticaModal'
 
 const MODAL_CONTENT = {
-    privacy: {
-        title: 'Privacy Policy',
-        content: 'Our privacy policy details go here...'
-    },
     cookies: {
         title: 'Terms of Service',
         content: 'Our terms and conditions go here...'
     },
-    legal: {
-        title: 'Terms of Service',
-        content: 'Our terms and conditions go here...'
-    },
-    conditionsHoreca: {
+    conditionshoreca: {
         title: 'Conditions Horeca',
         content: 'Our terms and conditions go here...'
     },
-    conditionsDomestic: {
+    conditionsdomestic: {
         title: 'Conditions Domestica',
         content: 'Our terms and conditions go here...'
     },
     thankyou: {
         title: 'Gracias',
         content: 'Gracias te llamaremos pronto'
+    },
+    cta: {
+        title: 'CTA',
+        content: 'cta'
     }
 }
 
@@ -39,28 +41,60 @@ export const ModalController = () => {
     if (!modalType || !MODAL_CONTENT[modalType]) return null
 
     const closeModal = () => {
-        router.push(pathname, { scroll: false })
+        router.push(pathname, { scroll: true })
     }
 
     const { title, content } = MODAL_CONTENT[modalType]
 
-    return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-            <div className="absolute inset-0" onClick={closeModal} />
+    if (modalType === "cta") {
+        return (
+            <CTAModal></CTAModal>
+        );
+    }
+    else if (modalType === "thankyou") {
+        return (
+            <ThankYouModal></ThankYouModal>
+        );
+    }
+    else if (modalType === "cookies") {
+        return (
+            <CookiesModal></CookiesModal>
+        );
+    }
+    else if (modalType === "conditionshoreca") {
+        return (
+            <ConditionsHorecaModal></ConditionsHorecaModal>
+        );
+    }
+    else if (modalType === "conditionsdomestic") {
+        return (
+            <ConditionsDomesticaModal></ConditionsDomesticaModal>
+        );
+    }
+    else {
+        return (
+            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+                <div className="absolute inset-0" onClick={closeModal} />
 
-            <div className="relative bg-white w-full max-w-lg p-8 rounded-2xl shadow-2xl animate-in fade-in zoom-in duration-200">
-                <button
-                    onClick={closeModal}
-                    className="text-dark absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-full"
-                >
-                    <X size={20} />
-                </button>
+                <div className="relative bg-white w-full max-w-4xl max-h-[90vh] flex flex-col rounded-2xl shadow-2xl animate-in fade-in zoom-in duration-200">
 
-                <h2 className="text-dark text-2xl font-bold mb-4">{title}</h2>
-                <div className="text-slate-600 leading-relaxed">
-                    {content}
+                    <div className="p-6 border-b border-slate-100 flex justify-between items-center ml-[20rem]">
+                        <h2 className="text-dark text-center text-2xl font-bold">Política de cookies</h2>
+                        <button
+                            onClick={closeModal}
+                            className="text-slate-500 p-2 hover:bg-slate-100 rounded-full transition-colors"
+                        >
+                            <X size={24} />
+                        </button>
+                    </div>
+
+                    <div className="flex-1 overflow-y-auto p-8 text-slate-600 leading-relaxed custom-scrollbar">
+                        <div className="min-w-full overflow-x-auto">
+                            {content}
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        );
+    }
 }
