@@ -13,7 +13,7 @@ export const DomesticStepsComponent: React.FC<{ stepNumber: number, title: strin
                 <img
                     src={backgroundImage.url}
                     alt={title}
-                    className="w-full aspect-[4/3] object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full aspect-[4/3] object-cover"
                     referrerPolicy="no-referrer"
                 />
 

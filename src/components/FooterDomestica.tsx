@@ -44,7 +44,7 @@ export const FooterDomesticaComponent = () => {
               href="?modal=conditionsdomestic"
               className="hover:text-pink transition-colors"
             >
-              Condiciones de la oferta
+              *Condiciones de la oferta
             </Link>
           </div>
         </div>

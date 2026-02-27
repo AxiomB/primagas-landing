@@ -16,7 +16,7 @@ export const HeroBlockComponent: React.FC = ({
 }: any) => {
     return (
         <section id="hero-header">
-            <section className="relative min-h-[600px] flex items-center overflow-hidden">
+            <section className="relative mb-[2rem] md:mb-0 min-h-[600px] flex items-center overflow-hidden">
                 <div className="absolute w-full h-[100dvh] md:h-[40dvh] md:inset-0 md:h-full z-0">
                     <img
                         src={backgroundImage.url}
@@ -26,17 +26,17 @@ export const HeroBlockComponent: React.FC = ({
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent" />
                 </div>
-                <div className="relative z-10 max-w-7xl px-6 md:px-12 w-full grid md:grid-cols-2 gap-18 items-center py-16">
+                <div className="relative z-10 mx-6 md:mx-20 lg:mx-40 w-full flex flex-col md:flex-row md:items-center md:justify-between gap-10">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="text-white text-center justify-center content-center lg:text-left max-w-full lg:max-w-sm"
+                        className="text-white text-center md:text-left max-w-full lg:max-w-md md:ml-[5%] lg:ml-[5%]"
                     >
-                        <h1 className="text-brand text-2xl sm:text-2xl md:text-3xl lg:text-6xl font-black leading-[1] mb-8 tracking-tighter">
+                        <h1 className="text-brand text-3xl sm:text-3xl md:text-4xl lg:text-6xl font-black leading-[1] mb-8 tracking-tighter">
                             {mainHeader}
                         </h1>
-                        <p className="text-center max-w-full text-lg max-w-xs md:2text-xl lg:text-2xl max-w-md mx-auto lg:mx-0 leading-tight text-gray-100">
+                        <p className="text-center md:text-left max-w-full text-lg md:text-xl lg:text-2xl mx-auto lg:mx-0 leading-tight text-gray-100">
                             {subHeader}
                         </p>
                     </motion.div>
@@ -46,9 +46,9 @@ export const HeroBlockComponent: React.FC = ({
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="flex justify-center content-center lg:justify-end"
+                        className="flex-shrink-0 flex justify-center md:justify-end mr-0 md:mr-[15%] lg:mr-[15%] md:ml-auto"
                     >
-                        <div className="w-full max-w-full md:max-w-[48dvw] lg:max-w-[24dvw] bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+                        <div className="w-full max-w-sm bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
                             <CallMeHorecaComponent facebookNumber={facebooknumber} googleNumber={googlenumber} />
                         </div>
                     </motion.div>

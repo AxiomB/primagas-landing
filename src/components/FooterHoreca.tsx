@@ -16,35 +16,35 @@ export const FooterHorecaComponent = () => {
             <Link
               href="https://s-sml.mtrbio.com/public/smartlink/primagas-espana"
               target='_blank'
-              className="hover:text-pink transition-colors"
+              className="transition-colors"
             >
               ESTUDIOS EFICIENCIA ENERGÉTICA
             </Link>
             <Link
               href="https://www.primagas.es/privacidad"
               target='_blank'
-              className="hover:text-pink transition-colors"
+              className="transition-colors"
             >
               Política de privacidad
             </Link>
             <Link
               href="?modal=cookies"
-              className="hover:text-pink transition-colors"
+              className="transition-colors"
             >
               Politica de Cookies
             </Link>
             <Link
               href="https://www.primagas.es/privacidad"
               target='_blank'
-              className="hover:text-pink transition-colors"
+              className="transition-colors"
             >
               Aviso Legal
             </Link>
             <Link
               href="?modal=conditionshoreca"
-              className="hover:text-pink transition-colors"
+              className="transition-colors"
             >
-              Condiciones de la oferta
+              *Condiciones de la oferta
             </Link>
           </div>
         </div>

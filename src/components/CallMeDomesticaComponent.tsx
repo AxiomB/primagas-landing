@@ -78,8 +78,8 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
 
                     <button
                         className={`w-full font-bold py-5 rounded-full flex flex-row items-center justify-center gap-2 transition-all active:scale-[0.98] ${accepted && inputNumber
-                            ? 'bg-brand hover:bg-brand text-white shadow-lg'
-                            : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                            ? 'bg-brand hover:bg-red-700 text-white shadow-lg'
+                            : 'bg-brand text-white cursor-not-allowed'
                             }`}
                         onClick={sendNumber}
                     >

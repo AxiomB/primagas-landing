@@ -8,7 +8,7 @@ const CookieDeclaration = () => {
     return (
         <div className="CookieDeclaration" lang="en" dir="ltr">
             <p className="CookieDeclarationIntro">
-                Cookies are small text files that can be used by websites to make a user's experience more efficient.
+                Cookies are small text files that can be used by websites to make a user&apos;s experience more efficient.
                 <br />
                 <br />
                 The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission.
@@ -113,7 +113,7 @@ const CookieDeclaration = () => {
                             <td className="CookieDeclarationTableCell">
                                 <a target="_blank" rel="noopener noreferrer nofollow" href="https://www.linkedin.com/legal/privacy-policy" title="LinkedIn's privacy policy">LinkedIn</a>
                             </td>
-                            <td className="CookieDeclarationTableCell">Used in order to detect spam and improve the website's security.</td>
+                            <td className="CookieDeclarationTableCell">Used in order to detect spam and improve the website&apos;s security.</td>
                             <td className="CookieDeclarationTableCell">1 year</td>
                             <td className="CookieDeclarationTableCell">HTTP Cookie</td>
                         </tr>
@@ -122,7 +122,7 @@ const CookieDeclaration = () => {
                             <td className="CookieDeclarationTableCell">
                                 <a target="_blank" rel="noopener noreferrer nofollow" href="https://www.cookiebot.com/goto/privacy-policy/" title="Cookiebot's privacy policy">Cookiebot</a>
                             </td>
-                            <td className="CookieDeclarationTableCell">Stores the user's cookie consent state for the current domain</td>
+                            <td className="CookieDeclarationTableCell">Stores the user&apos;s cookie consent state for the current domain</td>
                             <td className="CookieDeclarationTableCell">1 year</td>
                             <td className="CookieDeclarationTableCell">HTTP Cookie</td>
                         </tr>
@@ -131,7 +131,7 @@ const CookieDeclaration = () => {
                             <td className="CookieDeclarationTableCell">
                                 <a target="_blank" rel="noopener noreferrer nofollow" href="https://www.linkedin.com/legal/privacy-policy" title="LinkedIn's privacy policy">LinkedIn</a>
                             </td>
-                            <td className="CookieDeclarationTableCell">Stores the user's cookie consent state for the current domain</td>
+                            <td className="CookieDeclarationTableCell">Stores the user&apos;s cookie consent state for the current domain</td>
                             <td className="CookieDeclarationTableCell">180 days</td>
                             <td className="CookieDeclarationTableCell">HTTP Cookie</td>
                         </tr>
@@ -140,7 +140,7 @@ const CookieDeclaration = () => {
                             <td className="CookieDeclarationTableCell">
                                 <a target="_blank" rel="noopener noreferrer nofollow" href="https://business.safety.google/privacy/" title="Google's privacy policy">Google</a>
                             </td>
-                            <td className="CookieDeclarationTableCell">Used to check if the user's browser supports cookies.</td>
+                            <td className="CookieDeclarationTableCell">Used to check if the user&apos;s browser supports cookies.</td>
                             <td className="CookieDeclarationTableCell">1 day</td>
                             <td className="CookieDeclarationTableCell">HTTP Cookie</td>
                         </tr>
@@ -221,7 +221,7 @@ const CookieDeclaration = () => {
                             <td className="CookieDeclarationTableCell">
                                 <a target="_blank" rel="noopener noreferrer nofollow" href="https://privacy.microsoft.com/en-us/privacystatement" title="Microsoft's privacy policy">Microsoft</a>
                             </td>
-                            <td className="CookieDeclarationTableCell">Registers statistical data on users' behaviour on the website. Used for internal analytics by the website operator.</td>
+                            <td className="CookieDeclarationTableCell">Registers statistical data on users&apos; behaviour on the website. Used for internal analytics by the website operator.</td>
                             <td className="CookieDeclarationTableCell">1 day</td>
                             <td className="CookieDeclarationTableCell">HTTP Cookie</td>
                         </tr>
@@ -230,7 +230,7 @@ const CookieDeclaration = () => {
                             <td className="CookieDeclarationTableCell">
                                 <a target="_blank" rel="noopener noreferrer nofollow" href="https://business.safety.google/privacy/" title="Google's privacy policy">Google</a>
                             </td>
-                            <td className="CookieDeclarationTableCell">Used to send data to Google Analytics about the visitor's device and behavior. Tracks the visitor across devices and marketing channels.</td>
+                            <td className="CookieDeclarationTableCell">Used to send data to Google Analytics about the visitor&apos;s device and behavior. Tracks the visitor across devices and marketing channels.</td>
                             <td className="CookieDeclarationTableCell">2 years</td>
                             <td className="CookieDeclarationTableCell">HTTP Cookie</td>
                         </tr>
@@ -239,7 +239,7 @@ const CookieDeclaration = () => {
                             <td className="CookieDeclarationTableCell">
                                 <a target="_blank" rel="noopener noreferrer nofollow" href="https://business.safety.google/privacy/" title="Google's privacy policy">Google</a>
                             </td>
-                            <td className="CookieDeclarationTableCell">Used to send data to Google Analytics about the visitor's device and behavior. Tracks the visitor across devices and marketing channels.</td>
+                            <td className="CookieDeclarationTableCell">Used to send data to Google Analytics about the visitor&apos;s device and behavior. Tracks the visitor across devices and marketing channels.</td>
                             <td className="CookieDeclarationTableCell">2 years</td>
                             <td className="CookieDeclarationTableCell">HTTP Cookie</td>
                         </tr>
@@ -301,7 +301,7 @@ const CookieDeclaration = () => {
                             <td className="CookieDeclarationTableCell">
                                 <a target="_blank" rel="noopener noreferrer nofollow" href="https://business.safety.google/privacy/" title="Google's privacy policy">Google</a>
                             </td>
-                            <td className="CookieDeclarationTableCell">Used by Google DoubleClick to register and report the website user's actions after viewing or clicking one of the advertiser's ads with the purpose of measuring the efficacy of an ad and to present targeted ads to the user.</td>
+                            <td className="CookieDeclarationTableCell">Used by Google DoubleClick to register and report the website user&apos;s actions after viewing or clicking one of the advertiser&apos;s ads with the purpose of measuring the efficacy of an ad and to present targeted ads to the user.</td>
                             <td className="CookieDeclarationTableCell">400 days</td>
                             <td className="CookieDeclarationTableCell">HTTP Cookie</td>
                         </tr>

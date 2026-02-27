@@ -44,7 +44,7 @@ export const StepsBlockComponent: React.FC = ({
                     })}
                 </div>
                 <div className="mt-16 text-center">
-                    <button onClick={openModal} className="w-[16dvw] bg-brand text-white px-2 py-3 rounded-full hover:bg-red-700 transition-all shadow-xl tracking-widest text-md">
+                    <button onClick={openModal} className="w-sm md:w-[40dvw] lg:w-[18dvw] bg-brand text-white px-2 py-3 rounded-full hover:bg-red-700 transition-all shadow-xl tracking-widest text-md">
                         {buttonText}
                     </button>
                 </div>
