@@ -24,7 +24,7 @@ export const InterestedModal: React.FC<InterestedModalProps> = ({ closeModal }) 
             const res = await fetch('/api/call', {
                 method: 'POST',
                 body: JSON.stringify({
-                    channel: utms?.utm_source === 'facebook' ? '+34930349169' : '+34930340131',
+                    channel: utms?.utm_source === 'meta' ? '+34930349169' : '+34930340131',
                     phone: inputNumber
                 }),
                 headers: { 'Content-Type': 'application/json' },

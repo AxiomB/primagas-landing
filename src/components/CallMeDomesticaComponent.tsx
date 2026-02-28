@@ -10,7 +10,6 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
     const utms = useUtms();
     const router = useRouter();
     const pathname = usePathname();
-    const [displayNumber, setDisplayNumber] = useState<string>(utms?.utm_source === 'facebook' ? facebookNumber : googleNumber);
     const [inputNumber, setInputNumber] = useState<string>("");
     const [accepted, setAccepted] = useState<boolean>(false);
 
@@ -21,7 +20,7 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
             const res = await fetch('/api/call', {
                 method: 'POST',
                 body: JSON.stringify({
-                    channel: utms?.utm_source === 'facebook' ? '+34' + facebookNumber : '+34' + googleNumber,
+                    channel: utms?.utm_source == 'meta' ? '+34' + facebookNumber : '+34' + googleNumber,
                     phone: inputNumber
                 }),
                 headers: { 'Content-Type': 'application/json' },
@@ -42,7 +41,7 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
         <section>
             <div className="bg-brand p-6 text-white text-center">
                 <p className="text-md text-dark text-bold tracking-widest mb-1">Llama para informarte</p>
-                <h2 className="text-4xl text-white font-black">{displayNumber}</h2>
+                <h2 className="text-4xl text-white font-black">{utms?.utm_source == 'meta' ? facebookNumber : googleNumber}</h2>
                 <p className="text-md text-dark text-bold">Solo para nuevos clientes</p>
                 <p className="text-xl text-white text-white">¡Date prisa, solo para las</p>
                 <span className="text-xl text-white text-white font-bold">50 primeras instalaciones!</span>

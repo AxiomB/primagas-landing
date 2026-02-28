@@ -20,7 +20,7 @@ export async function POST(req: Request) {
             let apiKey: string = ""
             let signature: string = ""
 
-            if (channel === "facebook") {
+            if (channel === "meta") {
                 apiKey = process.env.FACEBOOK_OUT_API_KEY ? process.env.FACEBOOK_OUT_API_KEY : "";
                 signature = process.env.FACEBOOK_OUT_API_SECRET ? process.env.FACEBOOK_OUT_API_SECRET : "";
             }
@@ -49,7 +49,10 @@ export async function POST(req: Request) {
             return NextResponse.json({ message: response.json() });
         }
         catch (error) {
-
+            await payload.create({
+                collection: 'voicebcalls',
+                data: { channel, phone, result: error },
+            });
             return NextResponse.json({ message: error });
         }
     }

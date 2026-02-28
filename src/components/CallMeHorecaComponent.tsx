@@ -9,7 +9,6 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
     const utms = useUtms();
     const router = useRouter();
     const pathname = usePathname();
-    const [displayNumber, setDisplayNumber] = useState<string>(utms?.utm_source === 'facebook' ? facebookNumber : googleNumber);
     const [inputNumber, setInputNumber] = useState<string>("");
     const [accepted, setAccepted] = useState<boolean>(false);
 
@@ -20,7 +19,7 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
             const res = await fetch('/api/call', {
                 method: 'POST',
                 body: JSON.stringify({
-                    channel: utms?.utm_source === 'facebook' ? '+34' + facebookNumber : '+34' + googleNumber,
+                    channel: utms?.utm_source === 'meta' ? '+34' + facebookNumber : '+34' + googleNumber,
                     phone: inputNumber
                 }),
                 headers: { 'Content-Type': 'application/json' },
@@ -41,7 +40,7 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
         <section>
             <div className="bg-brand p-6 text-white text-center">
                 <p className="text-md text-bold tracking-widest mb-1">Llama para informarte</p>
-                <h2 className="text-4xl text-dark font-black">{displayNumber}</h2>
+                <h2 className="text-4xl text-dark font-black">{utms?.utm_source == 'meta' ? facebookNumber : googleNumber}</h2>
                 <p className="text-md text-bold">Solo para nuevos clientes</p>
             </div>
 

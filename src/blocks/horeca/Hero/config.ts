@@ -25,7 +25,7 @@ export const HeroBlock: Block = {
         {
             name: 'googlenumber',
             type: 'text',
-            label: 'Facebook Phone Number',
+            label: 'Google Phone Number',
             defaultValue: '919 373 184',
         },
         {
