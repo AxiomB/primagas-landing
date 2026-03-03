@@ -44,14 +44,14 @@ export const StepsBlockComponent: React.FC = ({
                     })}
                 </div>
                 <div className="mt-16 text-center">
-                    <button onClick={openModal} className="w-sm md:w-[40dvw] lg:w-[18dvw] bg-brand text-white px-2 py-3 rounded-full hover:bg-red-700 transition-all shadow-xl tracking-widest text-md">
+                    <button id="btn_meinteresa_hogar" onClick={openModal} className="w-sm md:w-[40dvw] lg:w-[18dvw] bg-brand text-white px-2 py-3 rounded-full hover:bg-red-700 transition-all shadow-xl tracking-widest text-md">
                         {buttonText}
                     </button>
                 </div>
             </div>
             {
                 activeModal ? <>
-                    <InterestedModal closeModal={closeModal}></InterestedModal>
+                    <InterestedModal thankyouId='thankyoutextdomestica' closeModal={closeModal}></InterestedModal>
                 </> : ""}
         </section>
     );

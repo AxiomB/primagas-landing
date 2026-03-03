@@ -2,14 +2,14 @@
 
 import { useUtms } from '@/hooks/useUtem';
 import { Check, ChevronRight, X } from 'lucide-react';
-import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 interface InterestedModalProps {
+    thankyouId: string
     closeModal: () => void;
 }
 
-export const InterestedModal: React.FC<InterestedModalProps> = ({ closeModal }) => {
+export const InterestedModal: React.FC<InterestedModalProps> = ({ thankyouId, closeModal }) => {
     const utms = useUtms();
     const [inputNumber, setInputNumber] = useState<string>("");
     const [accepted, setAccepted] = useState<boolean>(false);
@@ -130,7 +130,7 @@ export const InterestedModal: React.FC<InterestedModalProps> = ({ closeModal }) 
                             </button>
                         </div>
                         <div className="space-y-6 mx-auto my-24">
-                            <h2 className='text-brand text-6xl font-bold text-center'>Gracias.</h2>
+                            <h2 id={thankyouId} className='text-brand text-6xl font-bold text-center'>Gracias.</h2>
                             <h3 className='text-dark text-2xl font-bold text-center'>Hemos recibido correctamente tus datos.</h3>
                             <p className='text-dark text-lg text-center'>Nos pondremos en contacto contigo <br></br>lo antes posible</p>
                         </div>

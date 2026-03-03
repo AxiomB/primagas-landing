@@ -21,7 +21,11 @@ const MODAL_CONTENT = {
         title: 'Conditions Domestica',
         content: 'Our terms and conditions go here...'
     },
-    thankyou: {
+    thankyouhoreca: {
+        title: 'Gracias',
+        content: 'Gracias te llamaremos pronto'
+    },
+    thankyoudomestic: {
         title: 'Gracias',
         content: 'Gracias te llamaremos pronto'
     },
@@ -51,9 +55,14 @@ export const ModalController = () => {
             <CTAModal></CTAModal>
         );
     }
-    else if (modalType === "thankyou") {
+    else if (modalType === "thankyouhoreca") {
         return (
-            <ThankYouModal></ThankYouModal>
+            <ThankYouModal thankyouId='form_gracias_negocio'></ThankYouModal>
+        );
+    }
+    else if (modalType === "thankyoudomestic") {
+        return (
+            <ThankYouModal thankyouId='form_gracias_hogar'></ThankYouModal>
         );
     }
     else if (modalType === "cookies") {

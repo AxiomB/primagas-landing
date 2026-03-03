@@ -39,7 +39,7 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
             })
 
             if (res.ok) {
-                router.push(pathname + '?modal=thankyou', { scroll: false })
+                router.push(pathname + '?modal=thankyouhoreca', { scroll: false })
             } else {
                 throw new Error()
             }
@@ -91,6 +91,7 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
                     </label>
 
                     <button
+                        id="btn_llamadme_negocio"
                         className={`w-full font-bold py-5 rounded-full flex flex-row items-center justify-center gap-2 transition-all active:scale-[0.98] ${accepted && inputNumber
                             ? 'bg-brand hover:bg-red-700 text-white shadow-lg'
                             : 'bg-brand text-white cursor-not-allowed'

@@ -176,8 +176,6 @@ const CookieDeclaration = () => {
                     </tbody>
                 </table>
             </div>
-
-            {/* Statistics Section */}
             <div className="CookieDeclarationType" lang="en" dir="ltr">
                 <p className="CookieDeclarationTypeHeader">Statistics (4) </p>
                 <p className="CookieDeclarationTypeDescription">Statistic cookies help website owners to understand how visitors interact with websites by collecting and reporting information anonymously.</p>
@@ -238,8 +236,6 @@ const CookieDeclaration = () => {
                     </tbody>
                 </table>
             </div>
-
-            {/* Marketing Section */}
             <div className="CookieDeclarationType" lang="en" dir="ltr">
                 <p className="CookieDeclarationTypeHeader">Marketing (7) </p>
                 <p className="CookieDeclarationTypeDescription">Marketing cookies are used to track visitors across websites. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third party advertisers.</p>
@@ -327,8 +323,6 @@ const CookieDeclaration = () => {
                     </tbody>
                 </table>
             </div>
-
-            {/* Unclassified Section */}
             <div className="CookieDeclarationType" lang="en" dir="ltr">
                 <p className="CookieDeclarationTypeHeader">Unclassified (2) </p>
                 <p className="CookieDeclarationTypeDescription">

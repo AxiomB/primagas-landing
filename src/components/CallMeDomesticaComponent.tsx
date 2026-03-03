@@ -40,7 +40,7 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
             })
 
             if (res.ok) {
-                router.push(pathname + '?modal=thankyou', { scroll: false })
+                router.push(pathname + '?modal=thankyoudomestic', { scroll: false })
             } else {
                 throw new Error()
             }
@@ -95,6 +95,7 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
                     </label>
 
                     <button
+                        id="btn_llamadme_hogar"
                         className={`w-full font-bold py-5 rounded-full flex flex-row items-center justify-center gap-2 transition-all active:scale-[0.98] ${accepted && inputNumber
                             ? 'bg-brand hover:bg-red-700 text-white shadow-lg'
                             : 'bg-brand text-white cursor-not-allowed'

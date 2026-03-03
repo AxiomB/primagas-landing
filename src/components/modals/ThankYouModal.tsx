@@ -4,7 +4,7 @@ import { X } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 
-export const ThankYouModal: React.FC = () => {
+export const ThankYouModal: React.FC<{ thankyouId: string }> = ({ thankyouId }: { thankyouId: string }) => {
     const router = useRouter();
     const pathname = usePathname();
 
@@ -27,7 +27,7 @@ export const ThankYouModal: React.FC = () => {
 
                 <div className="px-8 pb-24 pt-4 flex flex-col items-center justify-center text-center">
                     <div className="space-y-6">
-                        <h2 className="text-brand text-6xl font-black tracking-tighter">Gracias.</h2>
+                        <h2 id={thankyouId} className="text-brand text-6xl font-black tracking-tighter">Gracias.</h2>
                         <div className="space-y-2">
                             <h3 className="text-dark text-2xl font-bold">Hemos recibido correctamente tus datos.</h3>
                             <p className="text-slate-500 text-lg">

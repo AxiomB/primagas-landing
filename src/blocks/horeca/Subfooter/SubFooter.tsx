@@ -29,12 +29,12 @@ export const SubfooterBlockComponent: React.FC = ({
                 <div className="space-y-6 text-lg text-gray-700 leading-tight">
                     <RichText data={firstParagraph} converters={JsxConverters} />
                     <RichText data={secondParagraph} converters={JsxConverters} />
-                    <button onClick={openModal} className="w-[26dw] md:w-[20dvw] lg:w-[16dvw] bg-brand text-white px-2 py-3 rounded-full hover:bg-red-700 transition-all shadow-xl tracking-widest text-md">
+                    <button id="btn_cambiateya_negocio " onClick={openModal} className="w-[26dw] md:w-[20dvw] lg:w-[16dvw] bg-brand text-white px-2 py-3 rounded-full hover:bg-red-700 transition-all shadow-xl tracking-widest text-md">
                         {endText}
                     </button>
                     {
                         activeModal ? <>
-                            <InterestedModal closeModal={closeModal}></InterestedModal>
+                            <InterestedModal thankyouId='thankyoutexthoreca' closeModal={closeModal}></InterestedModal>
                         </> : ""}
                 </div>
             </div>
