@@ -25,9 +25,7 @@ const CookieDeclaration = () => {
                 <br />
                 Please state your consent ID and date when you contact us regarding your consent.
             </p>
-
             <p>Your consent applies to the following domains: ofertasprimagas.com</p>
-
             <div
                 id="CookieDeclarationUserStatusPanel"
                 style={{ display: 'block', margin: '18px 0px 0px' }}
@@ -74,17 +72,13 @@ const CookieDeclaration = () => {
                     <a id="CookieDeclarationChangeConsentDoNotSell" href="#">Do not sell or share my personal information</a>
                 </div>
             </div>
-
             <br />
-
             <p className="CookieDeclarationLastUpdated">
                 Cookie declaration last updated on 2/10/26 by{' '}
                 <a href="https://www.cookiebot.com" target="_blank" rel="noopener noreferrer" title="Cookiebot">
                     Cookiebot
                 </a>:
             </p>
-
-            {/* Necessary Section */}
             <div className="CookieDeclarationType" lang="en" dir="ltr">
                 <p className="CookieDeclarationTypeHeader">Necessary (4) </p>
                 <p className="CookieDeclarationTypeDescription">
@@ -147,8 +141,6 @@ const CookieDeclaration = () => {
                     </tbody>
                 </table>
             </div>
-
-            {/* Preferences Section */}
             <div className="CookieDeclarationType" lang="en" dir="ltr">
                 <p className="CookieDeclarationTypeHeader">Preferences (1) </p>
                 <p className="CookieDeclarationTypeDescription">

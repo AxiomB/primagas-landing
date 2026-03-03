@@ -3,28 +3,39 @@
 import { useUtms } from '@/hooks/useUtem';
 import { Check, ChevronRight, X } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface InterestedModalProps {
     closeModal: () => void;
 }
 
 export const InterestedModal: React.FC<InterestedModalProps> = ({ closeModal }) => {
-    const router = useRouter();
-    const pathname = usePathname();
     const utms = useUtms();
     const [inputNumber, setInputNumber] = useState<string>("");
     const [accepted, setAccepted] = useState<boolean>(false);
     const [sent, setSent] = useState<boolean>(false);
+    const [showTooltip, setShowTooltip] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (showTooltip) {
+            const timer = setTimeout(() => setShowTooltip(false), 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [showTooltip]);
 
     const sendNumber = async () => {
-        if (!accepted || !inputNumber) return;
+        if (!accepted) {
+            setShowTooltip(true);
+            return;
+        }
+
+        if (!inputNumber) return;
 
         try {
             const res = await fetch('/api/call', {
                 method: 'POST',
                 body: JSON.stringify({
-                    channel: utms?.utm_source === 'meta' ? '+34930349169' : '+34930340131',
+                    channel: utms?.utm_source == 'google' ? 'google' : 'meta',
                     phone: inputNumber
                 }),
                 headers: { 'Content-Type': 'application/json' },
@@ -78,25 +89,24 @@ export const InterestedModal: React.FC<InterestedModalProps> = ({ closeModal }) 
                                     onChange={(e) => setInputNumber(e.target.value)}
                                 />
 
-                                <label className="flex items-start content-center justify-center gap-3 cursor-pointer group">
+                                <label className={`flex items-start justify-center gap-3 cursor-pointer group transition-transform ${showTooltip ? 'animate-bounce text-red-600' : ''}`}>
                                     <button
                                         type="button"
-                                        className={`w-6 h-6 shrink-0 rounded border flex items-center justify-center transition-colors ${accepted ? 'bg-brand border-brand' : 'border-gray-300 group-hover:border-red-400'}`}
-                                        onClick={() => setAccepted(!accepted)}
+                                        className={`w-6 h-6 shrink-0 rounded border flex items-center justify-center transition-colors ${accepted ? 'bg-brand border-brand' : 'border-gray-300 group-hover:border-red-400'} ${showTooltip ? 'border-red-500 ring-2 ring-red-100' : ''}`}
+                                        onClick={() => {
+                                            setAccepted(!accepted);
+                                            setShowTooltip(false);
+                                        }}
                                     >
                                         {accepted && <Check className="w-4 h-4 text-white" strokeWidth={3} />}
                                     </button>
-                                    <span className="text-sm text-gray-500 leading-snug">
+                                    <span className={`text-sm leading-snug ${showTooltip ? 'text-red-600 font-bold' : 'text-gray-500'}`}>
                                         Acepto la <a href="?modal=privacy" className="underline font-medium hover:text-brand">política de privacidad</a> y <a href="?modal=legal" className="underline font-medium hover:text-brand">aviso legal</a>.
                                     </span>
                                 </label>
 
                                 <button
-                                    disabled={!accepted || !inputNumber}
-                                    className={`w-1/2 mx-auto content-center justify-center font-bold py-5 rounded-full flex flex-row items-center justify-center gap-2 transition-all active:scale-[0.98] ${accepted && inputNumber
-                                        ? 'bg-brand hover:bg-brand text-white shadow-lg'
-                                        : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                                        }`}
+                                    className={`w-1/2 mx-auto content-center justify-center font-bold py-5 rounded-full flex flex-row items-center justify-center gap-2 transition-all active:scale-[0.98] bg-brand hover:bg-brand text-white shadow-lg`}
                                     onClick={sendNumber}
                                 >
                                     <span className='text-xl'>Llamadme</span>

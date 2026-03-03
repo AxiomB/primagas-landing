@@ -13,7 +13,6 @@ export const ConditionsBlocksComponent: React.FC = ({
         <section className="bg-brand py-20 text-white">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-x-12 gap-y-16 w-full">
-                    {/* Card 1 */}
                     <div className="bg-white flex flex-col md:flex-row items-center w-full p-8 gap-6 rounded-xl shadow-sm border border-gray-50">
                         <div className="w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0">
                             <img src="/assets/domestica/destacado-1.png" alt='piggybank' className="w-14 h-14 object-contain" />
@@ -25,8 +24,6 @@ export const ConditionsBlocksComponent: React.FC = ({
                             </p>
                         </div>
                     </div>
-
-                    {/* Card 2 */}
                     <div className="bg-white flex flex-col md:flex-row items-start w-full p-8 gap-6 rounded-xl shadow-sm border border-gray-50">
                         <div className="w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0 bg-gray-50 mt-1">
                             <img src="/assets/domestica/destacado-2.png" alt='wrench' className="w-14 h-14 object-contain" />
@@ -38,8 +35,6 @@ export const ConditionsBlocksComponent: React.FC = ({
                             </p>
                         </div>
                     </div>
-
-                    {/* Card 3 */}
                     <div className="bg-white flex flex-col md:flex-row items-center w-full p-8 gap-6 rounded-xl shadow-sm border border-gray-50">
                         <div className="w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0 bg-gray-50 mt-1">
                             <img src="/assets/domestica/destacado-3.png" alt='container' className="w-14 h-14 object-contain" />
@@ -52,8 +47,6 @@ export const ConditionsBlocksComponent: React.FC = ({
                             </ul>
                         </div>
                     </div>
-
-                    {/* Card 4 */}
                     <div className="bg-white flex flex-col md:flex-row items-center w-full p-8 gap-6 rounded-xl shadow-sm border border-gray-50">
                         <div className="w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0 bg-gray-50 mt-1">
                             <img src="/assets/domestica/destacado-4.png" alt='help' className="w-14 h-14 object-contain" />

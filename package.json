@@ -28,6 +28,7 @@
     "@payloadcms/ui": "3.77.0",
     "@tailwindcss/postcss": "^4.1.18",
     "cross-env": "^7.0.3",
+    "crypto": "^1.0.1",
     "dotenv": "16.4.7",
     "framer-motion": "^12.23.26",
     "graphql": "^16.8.1",

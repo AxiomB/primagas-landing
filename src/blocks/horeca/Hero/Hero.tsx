@@ -17,7 +17,7 @@ export const HeroBlockComponent: React.FC = ({
     return (
         <section id="hero-header">
             <section className="relative mb-[2rem] md:mb-0 min-h-[600px] flex items-center overflow-hidden">
-                <div className="absolute w-full h-[100dvh] md:h-[40dvh] md:inset-0 md:h-full z-0">
+                <div className="absolute w-full h-full lg:h-[100dvh] z-0">
                     <img
                         src={backgroundImage.url}
                         alt="Chef en cocina"

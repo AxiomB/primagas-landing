@@ -2,7 +2,7 @@
 import { useUtms } from '@/hooks/useUtem';
 import { Check, ChevronRight, Phone } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNumber: string }> = ({ facebookNumber, googleNumber }: { facebookNumber: string, googleNumber: string }) => {
 
@@ -11,15 +11,28 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
     const pathname = usePathname();
     const [inputNumber, setInputNumber] = useState<string>("");
     const [accepted, setAccepted] = useState<boolean>(false);
+    const [showTooltip, setShowTooltip] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (showTooltip) {
+            const timer = setTimeout(() => setShowTooltip(false), 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [showTooltip]);
 
     const sendNumber = async () => {
-        if (!accepted || !inputNumber) return;
+        if (!accepted) {
+            setShowTooltip(true);
+            return;
+        }
+
+        if (!inputNumber) return;
 
         try {
             const res = await fetch('/api/call', {
                 method: 'POST',
                 body: JSON.stringify({
-                    channel: utms?.utm_source === 'meta' ? '+34' + facebookNumber : '+34' + googleNumber,
+                    channel: utms?.utm_source == 'google' ? 'google' : 'meta',
                     phone: inputNumber
                 }),
                 headers: { 'Content-Type': 'application/json' },
@@ -40,7 +53,7 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
         <section>
             <div className="bg-brand p-6 text-white text-center">
                 <p className="text-md text-bold tracking-widest mb-1">Llama para informarte</p>
-                <h2 className="text-4xl text-dark font-black">{utms?.utm_source == 'meta' ? facebookNumber : googleNumber}</h2>
+                <h2 className="text-4xl text-dark font-black">{utms?.utm_source == 'google' ? googleNumber : facebookNumber}</h2>
                 <p className="text-md text-bold">Solo para nuevos clientes</p>
             </div>
 
@@ -63,11 +76,16 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
                         onChange={(e) => setInputNumber(e.target.value)}
                     />
 
-                    <label className="flex items-start gap-3 cursor-pointer group">
-                        <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${accepted ? 'bg-brand border-brand' : 'border-gray-300 group-hover:border-red-400'}`} onClick={() => setAccepted(!accepted)}>
+                    <label className={`flex items-start gap-3 cursor-pointer group transition-transform ${showTooltip ? 'animate-bounce text-red-600' : ''}`}>
+                        <div
+                            className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${accepted ? 'bg-brand border-brand' : 'border-gray-300 group-hover:border-red-400'}`}
+                            onClick={() => {
+                                setAccepted(!accepted);
+                                setShowTooltip(false);
+                            }}>
                             {accepted && <Check className="w-3 h-3 text-white" />}
                         </div>
-                        <span className="text-xs text-gray-500 leading-tight">
+                        <span className={`text-xs text-gray-500 leading-tight ${showTooltip ? 'text-red-600' : 'text-gray-500'}`}>
                             Acepto la <a href="https://www.primagas.es/privacidad" className="underline hover:text-brand">política de privacidad</a> y <a href="https://www.primagas.es/privacidad" className="underline hover:text-brand">aviso legal</a>.
                         </span>
                     </label>
