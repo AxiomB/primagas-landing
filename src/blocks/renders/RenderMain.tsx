@@ -3,11 +3,13 @@ import React from 'react'
 import { HeroBlockComponent } from '../main/Hero/Hero'
 import { HomeBlockComponent } from '../main/Home/Home'
 import { BusinessBlockComponent } from '../main/Business/Business'
+import { WhyPrimagasBlockComponent } from '../main/WhyPrimagas/WhyPrimagas';
 
 const blockComponents = {
     hero: HeroBlockComponent,
     home: HomeBlockComponent,
     business: BusinessBlockComponent,
+    whyprimagas: WhyPrimagasBlockComponent
 }
 
 export const RenderMain = ({ layout }: { layout: any[] }) => {
@@ -25,5 +27,5 @@ export const RenderMain = ({ layout }: { layout: any[] }) => {
                 return null
             })}
         </>
-    )
+    );
 }

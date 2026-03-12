@@ -76,6 +76,7 @@ export interface Config {
     domesticfaqs: Domesticfaq;
     domesticsteps: Domesticstep;
     voicebcalls: Voicebcall;
+    mainreasons: Mainreason;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -92,6 +93,7 @@ export interface Config {
     domesticfaqs: DomesticfaqsSelect<false> | DomesticfaqsSelect<true>;
     domesticsteps: DomesticstepsSelect<false> | DomesticstepsSelect<true>;
     voicebcalls: VoicebcallsSelect<false> | VoicebcallsSelect<true>;
+    mainreasons: MainreasonsSelect<false> | MainreasonsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -154,12 +156,12 @@ export interface User {
   loginAttempts?: number | null;
   lockUntil?: string | null;
   sessions?:
-    | {
-        id: string;
-        createdAt?: string | null;
-        expiresAt: string;
-      }[]
-    | null;
+  | {
+    id: string;
+    createdAt?: string | null;
+    expiresAt: string;
+  }[]
+  | null;
   password?: string | null;
   collection: 'users';
 }
@@ -301,20 +303,31 @@ export interface Voicebcall {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "mainreasons".
+ */
+export interface Mainreason {
+  id: number;
+  title: string;
+  backgroundImage: number | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
   id: number;
   key: string;
   data:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
+  | {
+    [k: string]: unknown;
+  }
+  | unknown[]
+  | string
+  | number
+  | boolean
+  | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -323,42 +336,46 @@ export interface PayloadKv {
 export interface PayloadLockedDocument {
   id: number;
   document?:
-    | ({
-        relationTo: 'users';
-        value: number | User;
-      } | null)
-    | ({
-        relationTo: 'media';
-        value: number | Media;
-      } | null)
-    | ({
-        relationTo: 'staticpages';
-        value: number | Staticpage;
-      } | null)
-    | ({
-        relationTo: 'horecabenefits';
-        value: number | Horecabenefit;
-      } | null)
-    | ({
-        relationTo: 'domesticadvantages';
-        value: number | Domesticadvantage;
-      } | null)
-    | ({
-        relationTo: 'domesticconditions';
-        value: number | Domesticcondition;
-      } | null)
-    | ({
-        relationTo: 'domesticfaqs';
-        value: number | Domesticfaq;
-      } | null)
-    | ({
-        relationTo: 'domesticsteps';
-        value: number | Domesticstep;
-      } | null)
-    | ({
-        relationTo: 'voicebcalls';
-        value: number | Voicebcall;
-      } | null);
+  | ({
+    relationTo: 'users';
+    value: number | User;
+  } | null)
+  | ({
+    relationTo: 'media';
+    value: number | Media;
+  } | null)
+  | ({
+    relationTo: 'staticpages';
+    value: number | Staticpage;
+  } | null)
+  | ({
+    relationTo: 'horecabenefits';
+    value: number | Horecabenefit;
+  } | null)
+  | ({
+    relationTo: 'domesticadvantages';
+    value: number | Domesticadvantage;
+  } | null)
+  | ({
+    relationTo: 'domesticconditions';
+    value: number | Domesticcondition;
+  } | null)
+  | ({
+    relationTo: 'domesticfaqs';
+    value: number | Domesticfaq;
+  } | null)
+  | ({
+    relationTo: 'domesticsteps';
+    value: number | Domesticstep;
+  } | null)
+  | ({
+    relationTo: 'voicebcalls';
+    value: number | Voicebcall;
+  } | null)
+  | ({
+    relationTo: 'mainreasons';
+    value: number | Mainreason;
+  } | null);
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
@@ -379,14 +396,14 @@ export interface PayloadPreference {
   };
   key?: string | null;
   value?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
+  | {
+    [k: string]: unknown;
+  }
+  | unknown[]
+  | string
+  | number
+  | boolean
+  | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -416,12 +433,12 @@ export interface UsersSelect<T extends boolean = true> {
   loginAttempts?: T;
   lockUntil?: T;
   sessions?:
-    | T
-    | {
-        id?: T;
-        createdAt?: T;
-        expiresAt?: T;
-      };
+  | T
+  | {
+    id?: T;
+    createdAt?: T;
+    expiresAt?: T;
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -517,6 +534,16 @@ export interface VoicebcallsSelect<T extends boolean = true> {
   channel?: T;
   phone?: T;
   result?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "mainreasons_select".
+ */
+export interface MainreasonsSelect<T extends boolean = true> {
+  title?: T;
+  backgroundImage?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -694,7 +721,7 @@ export interface BenefitsBlock {
  */
 export interface Mainpage {
   id: number;
-  layout?: (HeroBlock | HomeBlock | BusinessBlock)[] | null;
+  layout?: (HeroBlock | HomeBlock | BusinessBlock | WhyPrimagasBlock)[] | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -724,6 +751,13 @@ export interface BusinessBlock {
   blockName?: string | null;
   blockType: 'business';
 }
+export interface WhyPrimagasBlock {
+  title: string;
+  reasons?: (number | Mainreason)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'whyprimagas';
+}
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "site-settings".
@@ -742,15 +776,15 @@ export interface SiteSetting {
  */
 export interface DomesticapageSelect<T extends boolean = true> {
   layout?:
-    | T
-    | {
-        hero?: T | HeroBlockSelect<T>;
-        advantages?: T | AdvantagesBlockSelect<T>;
-        conditions?: T | ConditionsBlockSelect<T>;
-        faq?: T | FaqBlockSelect<T>;
-        steps?: T | StepsBlockSelect<T>;
-        subfooter?: T | SubfooterBlockSelect<T>;
-      };
+  | T
+  | {
+    hero?: T | HeroBlockSelect<T>;
+    advantages?: T | AdvantagesBlockSelect<T>;
+    conditions?: T | ConditionsBlockSelect<T>;
+    faq?: T | FaqBlockSelect<T>;
+    steps?: T | StepsBlockSelect<T>;
+    subfooter?: T | SubfooterBlockSelect<T>;
+  };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -824,12 +858,12 @@ export interface SubfooterBlockSelect<T extends boolean = true> {
  */
 export interface HorecapageSelect<T extends boolean = true> {
   layout?:
-    | T
-    | {
-        hero?: T | HeroBlockSelect<T>;
-        benefits?: T | BenefitsBlockSelect<T>;
-        subfooter?: T | SubfooterBlockSelect<T>;
-      };
+  | T
+  | {
+    hero?: T | HeroBlockSelect<T>;
+    benefits?: T | BenefitsBlockSelect<T>;
+    subfooter?: T | SubfooterBlockSelect<T>;
+  };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -850,12 +884,13 @@ export interface BenefitsBlockSelect<T extends boolean = true> {
  */
 export interface MainpageSelect<T extends boolean = true> {
   layout?:
-    | T
-    | {
-        hero?: T | HeroBlockSelect<T>;
-        home?: T | HomeBlockSelect<T>;
-        business?: T | BusinessBlockSelect<T>;
-      };
+  | T
+  | {
+    hero?: T | HeroBlockSelect<T>;
+    home?: T | HomeBlockSelect<T>;
+    business?: T | BusinessBlockSelect<T>;
+    whyprimagas?: T | WhyPrimagasBlockSelect<T>;
+  };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -881,6 +916,10 @@ export interface BusinessBlockSelect<T extends boolean = true> {
   imgHeader?: T;
   listHeader?: T;
   backgroundImage?: T;
+}
+export interface WhyPrimagasBlockSelect<T extends boolean = true> {
+  title?: T;
+  reasons?: T;
   id?: T;
   blockName?: T;
 }
@@ -906,5 +945,5 @@ export interface Auth {
 
 
 declare module 'payload' {
-  export interface GeneratedTypes extends Config {}
+  export interface GeneratedTypes extends Config { }
 }

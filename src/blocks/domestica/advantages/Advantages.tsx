@@ -8,7 +8,6 @@ export const AdvantagesBlockComponent: React.FC = ({
     advantages,
 }: any) => {
 
-    console.log(advantages);
     const domadvantages = advantages || [];
 
     return (
