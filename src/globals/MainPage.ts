@@ -1,10 +1,6 @@
-import { AdvantagesBlock } from '@/blocks/domestica/advantages/config'
-import { ConditionsBlock } from '@/blocks/domestica/conditions/config'
-import { FaqBlock } from '@/blocks/domestica/faq/config'
 import { HeroBlock } from '@/blocks/main/Hero/config'
 import { HomeBlock } from '@/blocks/main/Home/config'
-import { StepsBlock } from '@/blocks/domestica/steps/config'
-import { SubfooterBlock } from '@/blocks/domestica/subfooter/config'
+import { BusinessBlock } from '@/blocks/main/Business/config'
 import { GlobalConfig } from 'payload'
 
 export const MainPage: GlobalConfig = {
@@ -13,7 +9,7 @@ export const MainPage: GlobalConfig = {
         {
             name: 'layout',
             type: 'blocks',
-            blocks: [HeroBlock, HomeBlock],
+            blocks: [HeroBlock, HomeBlock, BusinessBlock],
         },
     ],
 }

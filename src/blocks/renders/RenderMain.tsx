@@ -2,15 +2,12 @@ import React from 'react'
 
 import { HeroBlockComponent } from '../main/Hero/Hero'
 import { HomeBlockComponent } from '../main/Home/Home'
-import { AdvantagesBlockComponent } from '../domestica/advantages/Advantages'
-import { ConditionsBlocksComponent } from '../domestica/conditions/Conditions'
-import { FaqBlocksComponent } from '../domestica/faq/Faq'
-import { StepsBlockComponent } from '../domestica/steps/Steps'
-import { SubfooterBlockComponent } from '../domestica/subfooter/SubFooter'
+import { BusinessBlockComponent } from '../main/Business/Business'
 
 const blockComponents = {
     hero: HeroBlockComponent,
-    home: HomeBlockComponent
+    home: HomeBlockComponent,
+    business: BusinessBlockComponent,
 }
 
 export const RenderMain = ({ layout }: { layout: any[] }) => {

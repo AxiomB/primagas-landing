@@ -43,7 +43,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       {settings.gtmId && <GoogleTagManager gtmId={settings.gtmId} />}
       <body className='overflow-x-hidden'>
         <HeaderComponent></HeaderComponent>
-        <main>
+        <main className="w-full">
           {children}
         </main>
         <FooterDomesticaComponent></FooterDomesticaComponent>

@@ -694,7 +694,7 @@ export interface BenefitsBlock {
  */
 export interface Mainpage {
   id: number;
-  layout?: (HeroBlock | HomeBlock)[] | null;
+  layout?: (HeroBlock | HomeBlock | BusinessBlock)[] | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -710,6 +710,19 @@ export interface HomeBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'home';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BusinessBlock".
+ */
+export interface BusinessBlock {
+  mainHeader?: string | null;
+  imgHeader?: string | null;
+  listHeader?: string | null;
+  backgroundImage: number | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'business';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -841,6 +854,7 @@ export interface MainpageSelect<T extends boolean = true> {
     | {
         hero?: T | HeroBlockSelect<T>;
         home?: T | HomeBlockSelect<T>;
+        business?: T | BusinessBlockSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -851,6 +865,18 @@ export interface MainpageSelect<T extends boolean = true> {
  * via the `definition` "HomeBlock_select".
  */
 export interface HomeBlockSelect<T extends boolean = true> {
+  mainHeader?: T;
+  imgHeader?: T;
+  listHeader?: T;
+  backgroundImage?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BusinessBlock_select".
+ */
+export interface BusinessBlockSelect<T extends boolean = true> {
   mainHeader?: T;
   imgHeader?: T;
   listHeader?: T;
