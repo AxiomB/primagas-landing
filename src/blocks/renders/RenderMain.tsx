@@ -1,0 +1,32 @@
+import React from 'react'
+
+import { HeroBlockComponent } from '../main/Hero/Hero'
+import { HomeBlockComponent } from '../main/Home/Home'
+import { AdvantagesBlockComponent } from '../domestica/advantages/Advantages'
+import { ConditionsBlocksComponent } from '../domestica/conditions/Conditions'
+import { FaqBlocksComponent } from '../domestica/faq/Faq'
+import { StepsBlockComponent } from '../domestica/steps/Steps'
+import { SubfooterBlockComponent } from '../domestica/subfooter/SubFooter'
+
+const blockComponents = {
+    hero: HeroBlockComponent,
+    home: HomeBlockComponent
+}
+
+export const RenderMain = ({ layout }: { layout: any[] }) => {
+    if (!layout) return null
+
+    return (
+        <>
+            {layout.map((block, index) => {
+                const { blockType } = block
+                const Component = blockComponents[blockType as keyof typeof blockComponents]
+
+                if (Component) {
+                    return <Component key={index} {...block} />
+                }
+                return null
+            })}
+        </>
+    )
+}

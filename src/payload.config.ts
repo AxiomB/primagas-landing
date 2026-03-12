@@ -17,6 +17,7 @@ import { DomesticConditions } from './collections/DomesticConditions'
 import { DomesticFaqs } from './collections/DomesticFaqs'
 import { DomesticSteps } from './collections/DomesticSteps'
 import { VoiceBCalls } from './collections/VoiceBCalls'
+import { MainPage } from './globals/MainPage'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -87,5 +88,5 @@ export default buildConfig({
   }),
   sharp,
   plugins: [],
-  globals: [DomesticaPage, HorecaPage, SiteSettings],
+  globals: [DomesticaPage, HorecaPage, MainPage, SiteSettings],
 })

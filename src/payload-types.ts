@@ -104,11 +104,13 @@ export interface Config {
   globals: {
     domesticapage: Domesticapage;
     horecapage: Horecapage;
+    mainpage: Mainpage;
     'site-settings': SiteSetting;
   };
   globalsSelect: {
     domesticapage: DomesticapageSelect<false> | DomesticapageSelect<true>;
     horecapage: HorecapageSelect<false> | HorecapageSelect<true>;
+    mainpage: MainpageSelect<false> | MainpageSelect<true>;
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
   };
   locale: null;
@@ -575,12 +577,8 @@ export interface Domesticapage {
 export interface HeroBlock {
   mainHeader?: string | null;
   subHeader?: string | null;
-  facebooknumber?: string | null;
-  googlenumber?: string | null;
+  subText?: string | null;
   backgroundImage: number | Media;
-  leftBoxText?: string | null;
-  rightBoxFirstText?: string | null;
-  rightBoxSecondText?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hero';
@@ -692,6 +690,29 @@ export interface BenefitsBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "mainpage".
+ */
+export interface Mainpage {
+  id: number;
+  layout?: (HeroBlock | HomeBlock)[] | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HomeBlock".
+ */
+export interface HomeBlock {
+  mainHeader?: string | null;
+  imgHeader?: string | null;
+  listHeader?: string | null;
+  backgroundImage: number | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'home';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "site-settings".
  */
 export interface SiteSetting {
@@ -728,12 +749,8 @@ export interface DomesticapageSelect<T extends boolean = true> {
 export interface HeroBlockSelect<T extends boolean = true> {
   mainHeader?: T;
   subHeader?: T;
-  facebooknumber?: T;
-  googlenumber?: T;
+  subText?: T;
   backgroundImage?: T;
-  leftBoxText?: T;
-  rightBoxFirstText?: T;
-  rightBoxSecondText?: T;
   id?: T;
   blockName?: T;
 }
@@ -811,6 +828,33 @@ export interface HorecapageSelect<T extends boolean = true> {
 export interface BenefitsBlockSelect<T extends boolean = true> {
   mainHeader?: T;
   horecaBenefits?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "mainpage_select".
+ */
+export interface MainpageSelect<T extends boolean = true> {
+  layout?:
+    | T
+    | {
+        hero?: T | HeroBlockSelect<T>;
+        home?: T | HomeBlockSelect<T>;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HomeBlock_select".
+ */
+export interface HomeBlockSelect<T extends boolean = true> {
+  mainHeader?: T;
+  imgHeader?: T;
+  listHeader?: T;
+  backgroundImage?: T;
   id?: T;
   blockName?: T;
 }
