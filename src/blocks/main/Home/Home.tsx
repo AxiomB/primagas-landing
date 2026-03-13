@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
+import { useRouter } from 'next/navigation';
 
 export const HomeBlockComponent: React.FC = ({
     backgroundImage,
@@ -10,46 +11,48 @@ export const HomeBlockComponent: React.FC = ({
     imgHeader,
 
 }: any) => {
+    const router = useRouter();
+
     return (
-        <section id="main-home" className="flex flex-col py-[5%]">
-            <h1 className="relative flex mx-auto text-3xl text-black uppercase">
+        <section id="main-home" className="bg-grey/20 flex flex-col py-[5%]">
+            <h1 className="mx-6 md:mx-auto text-center font-bold text-3xl text-black uppercase">
                 {mainHeader}
             </h1>
-            <section className="px-[20%] my-10 relative grid grid-cols-2">
-                <section className="relative flex-col">
+            <section className="mt-10 mx-auto w-full max-w-6xl px-6 flex flex-col md:flex-row gap-6">
+                <section className="flex flex-col w-full md:w-1/2">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className=""
                     >
-                        <p className="text-m text-black">
+                        <p className="mb-4 text-md text-black leading-tight">
                             {imgHeader}
                         </p>
                     </motion.div>
-                    <div className="relative">
+                    <div className="w-full">
                         <img
                             src={backgroundImage.url}
                             alt="Padre jugando con su hija en el exterior del jardín de su casa"
                             referrerPolicy="no-referrer"
+                            className="w-full h-auto object-cover rounded-3xl"
                         />
                     </div>
                 </section>
-                <section className="px-20 py-0 relative flex flex-col h-full">
-                    <ul className="list-disc text-black">
-                        <h2 className="text-2xl text-[#df2b2a]">
-                            {listHeader}
-                        </h2>
-                        <li>
+                <section className="flex flex-col w-full md:w-1/2">
+                    <h2 className="mb-4 text-2xl font-semibold text-[#df2b2a]">
+                        {listHeader}
+                    </h2>
+                    <ul className="list-disc list-inside marker:text-[#df2b2a] text-black space-y-3 flex-1">
+                        <li className="text-xl">
                             Una solución energética pensada para viviendas fuera de red.
                         </li>
-                        <li>
-                            Calefacción, agaua caliente y cocina con un suministro estable.*
+                        <li className="text-xl">
+                            Calefacción, agua caliente y cocina con un suministro estable.*
                         </li>
-                        <li>
+                        <li className="text-xl">
                             Instalación del depósito incluida dentro de la oferta*.
                         </li>
-                        <li>
+                        <li className="text-xl">
                             La tranquilidad de contar con un proveedor con 30 años de experiencia en zonas rurales.
                         </li>
                     </ul>
@@ -57,12 +60,16 @@ export const HomeBlockComponent: React.FC = ({
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative flex h-full"
                     >
-                        <button className="relative self-end mx-auto bg-[#df2b2a] hover:bg-[#df2b2a]/30 text-white font-bold w-sm h-15 rounded-full">
-                            <p className="mt-3 mt-auto mb-auto text-white text-m md:text-m">
+                        <button
+                            className="mt-6 bg-brand hover:bg-red-700 text-white px-6 h-12 rounded-full"
+                            onClick={() => {
+                                router.push('/hogar', { scroll: false })
+                            }}
+                        >
+                            <span className="text-white text-sm md:text-base">
                                 Ver oferta para hogares
-                            </p>
+                            </span>
                         </button>
                     </motion.div>
                 </section>
