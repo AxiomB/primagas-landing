@@ -5,7 +5,7 @@ import { Check, ChevronRight } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
-export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, googleNumber: string }> = ({ facebookNumber, googleNumber }: { facebookNumber: string, googleNumber: string }) => {
+export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, googleNumber: string, defaultNumber: string }> = ({ facebookNumber, googleNumber, defaultNumber }: { facebookNumber: string, googleNumber: string, defaultNumber: string }) => {
 
     const utms = useUtms();
     const router = useRouter();
@@ -33,7 +33,7 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
             const res = await fetch('/api/call', {
                 method: 'POST',
                 body: JSON.stringify({
-                    channel: utms?.utm_source == 'google' ? 'google' : 'meta',
+                    channel: utms?.utm_source == 'google' ? 'google' : utms?.utm_source == 'meta' ? 'meta' : '',
                     phone: inputNumber
                 }),
                 headers: { 'Content-Type': 'application/json' },
@@ -54,7 +54,7 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
         <section>
             <div className="bg-brand p-6 text-white text-center">
                 <p className="text-md text-dark text-bold tracking-widest mb-1">Llama para informarte</p>
-                <h2 className="text-4xl text-white font-black">{utms?.utm_source == 'google' ? googleNumber : facebookNumber}</h2>
+                <h2 className="text-4xl text-white font-black">{utms?.utm_source == 'google' ? googleNumber : utms?.utm_source == 'meta' ? facebookNumber : defaultNumber}</h2>
                 <p className="text-md text-dark text-bold">Solo para nuevos clientes</p>
                 <p className="text-xl text-white text-white">¡Date prisa, solo para las</p>
                 <span className="text-xl text-white text-white font-bold">50 primeras instalaciones!</span>

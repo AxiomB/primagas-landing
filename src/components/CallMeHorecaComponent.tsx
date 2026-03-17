@@ -4,7 +4,7 @@ import { Check, ChevronRight, Phone } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
-export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNumber: string }> = ({ facebookNumber, googleNumber }: { facebookNumber: string, googleNumber: string }) => {
+export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNumber: string, defaultNumber: string }> = ({ facebookNumber, googleNumber, defaultNumber }: { facebookNumber: string, googleNumber: string, defaultNumber: string }) => {
 
     const utms = useUtms();
     const router = useRouter();
@@ -32,7 +32,7 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
             const res = await fetch('/api/call', {
                 method: 'POST',
                 body: JSON.stringify({
-                    channel: utms?.utm_source == 'google' ? 'google' : 'meta',
+                    channel: utms?.utm_source == 'google' ? 'google' : utms?.utm_source == 'meta' ? 'meta' : '',
                     phone: inputNumber
                 }),
                 headers: { 'Content-Type': 'application/json' },
@@ -53,7 +53,7 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
         <section>
             <div className="bg-brand p-6 text-white text-center">
                 <p className="text-md text-bold tracking-widest mb-1">Llama para informarte</p>
-                <h2 className="text-4xl text-dark font-black">{utms?.utm_source == 'google' ? googleNumber : facebookNumber}</h2>
+                <h2 className="text-4xl text-dark font-black">{utms?.utm_source == 'google' ? googleNumber : utms?.utm_source == 'meta' ? facebookNumber : defaultNumber}</h2>
                 <p className="text-md text-bold">Solo para nuevos clientes</p>
             </div>
 

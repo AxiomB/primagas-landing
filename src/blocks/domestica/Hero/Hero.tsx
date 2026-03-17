@@ -10,6 +10,7 @@ export const HeroBlockComponent: React.FC = ({
     subHeader,
     facebooknumber,
     googlenumber,
+    defaultnumber,
     downBoxtext,
     downBoxtextSecond,
 }: any) => {
@@ -46,7 +47,7 @@ export const HeroBlockComponent: React.FC = ({
                         className="flex justify-center content-center lg:justify-end"
                     >
                         <div className="w-full max-w-full md:max-w-[48dvw] lg:max-w-[24dvw] bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
-                            <CallMeDomesticaComponent facebookNumber={facebooknumber} googleNumber={googlenumber} />
+                            <CallMeDomesticaComponent facebookNumber={facebooknumber} googleNumber={googlenumber} defaultNumber={defaultnumber} />
                         </div>
                     </motion.div>
                 </div>

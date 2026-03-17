@@ -29,6 +29,12 @@ export const HeroBlock: Block = {
             defaultValue: '919 373 184',
         },
         {
+            name: 'defaultnumber',
+            type: 'text',
+            label: 'Default Phone Number',
+            defaultValue: '919 373 187'
+        },
+        {
             name: 'backgroundImage',
             type: 'upload',
             relationTo: 'media',
