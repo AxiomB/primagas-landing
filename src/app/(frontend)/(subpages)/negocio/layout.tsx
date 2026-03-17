@@ -14,8 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await payload.findGlobal({ slug: 'site-settings' })
 
   return {
-    description: 'CÁMBIATE AL PRECIO FIJO DEL GAS*',
-    title: 'Primagas | Profesional',
+    description: 'Optimiza tu consumo de gas con Primagas. Instalación gratuita* y precio fijo* garantizado. La energía más eficiente para alojamientos, hostelería e industrial.',
+    title: 'Ofertas Primagas Negocio | Soluciones de gas para empresas',
     verification: {
       google: settings.googleVerificationId,
     },

@@ -39,9 +39,13 @@ export async function POST(req: Request) {
                 apiKey = process.env.FACEBOOK_OUT_API_KEY ? process.env.FACEBOOK_OUT_API_KEY : "";
                 signature = process.env.FACEBOOK_OUT_API_SECRET ? generateSignature(process.env.FACEBOOK_OUT_API_SECRET, textBody) : "";
             }
-            else {
+            else if (channel === "google") {
                 apiKey = process.env.GOOGLE_OUT_API_KEY ? process.env.GOOGLE_OUT_API_KEY : "";
                 signature = process.env.GOOGLE_OUT_API_SECRET ? generateSignature(process.env.GOOGLE_OUT_API_SECRET, textBody) : "";
+            }
+            else {
+                apiKey = process.env.DEFAULT_OUT_API_KEY ? process.env.DEFAULT_OUT_API_KEY : "";
+                signature = process.env.DEFAULT_OUT_API_SECRET ? generateSignature(process.env.DEFAULT_OUT_API_SECRET, textBody) : "";
             }
 
             const response = await fetch(endpoint, {

@@ -14,8 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await payload.findGlobal({ slug: 'site-settings' })
 
   return {
-    description: 'QUE LA ENERGÍA NUNCA FALTE EN TU HOGAR, VIVAS DONDE VIVAS.',
-    title: 'Primagas | Oferta Doméstica',
+    description: 'Solución ideal para calefacción y agua caliente donde no llega el gas natural. Descubre las mejores ofertas de Primagas: Instalación gratuita* y precio fijo*.',
+    title: 'Ofertas Primagas | Gas y energía para empresas y hogares',
     verification: {
       google: settings.googleVerificationId,
     },

@@ -14,6 +14,8 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
     const [accepted, setAccepted] = useState<boolean>(false);
     const [showTooltip, setShowTooltip] = useState<boolean>(false);
 
+    console.log(defaultNumber);
+
     useEffect(() => {
         if (showTooltip) {
             const timer = setTimeout(() => setShowTooltip(false), 3000);
@@ -33,7 +35,7 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
             const res = await fetch('/api/call', {
                 method: 'POST',
                 body: JSON.stringify({
-                    channel: utms?.utm_source == 'google' ? 'google' : utms?.utm_source == 'meta' ? 'meta' : '',
+                    channel: utms?.utm_source == 'google' ? 'google' : utms?.utm_source == 'meta' ? 'meta' : 'default',
                     phone: inputNumber
                 }),
                 headers: { 'Content-Type': 'application/json' },

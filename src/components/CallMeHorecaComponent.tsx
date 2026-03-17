@@ -32,7 +32,7 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
             const res = await fetch('/api/call', {
                 method: 'POST',
                 body: JSON.stringify({
-                    channel: utms?.utm_source == 'google' ? 'google' : utms?.utm_source == 'meta' ? 'meta' : '',
+                    channel: utms?.utm_source == 'google' ? 'google' : utms?.utm_source == 'meta' ? 'meta' : 'default',
                     phone: inputNumber
                 }),
                 headers: { 'Content-Type': 'application/json' },

@@ -19,7 +19,6 @@ export function middleware(request: NextRequest) {
 
         response.cookies.set('utm_session', JSON.stringify(utmData), {
             path: '/',
-            maxAge: 60 * 60 * 24 * 30,
             httpOnly: false,
         })
     }

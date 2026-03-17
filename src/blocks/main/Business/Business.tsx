@@ -43,7 +43,7 @@ export const BusinessBlockComponent: React.FC = ({
                         <button
                             className="bg-brand hover:bg-red-700 text-white px-6 h-12 rounded-full"
                             onClick={() => {
-                                router.push('/negocio', { scroll: false })
+                                router.push('/negocio?utm_source=landing&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}', { scroll: false })
                             }}
                         >
                             <span className="text-white text-sm md:text-base">

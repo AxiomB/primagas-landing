@@ -14,8 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await payload.findGlobal({ slug: 'site-settings' })
 
   return {
-    description: 'QUE LA ENERGÍA NUNCA FALTE EN TU HOGAR, VIVAS DONDE VIVAS.',
-    title: 'Primagas | Oferta Doméstica',
+    description: 'Lleva el confort a tu vivienda sin importar dónde estés. Instalación gratuita* y precio fijo* garantizado. La energía eficiente donde otros no llegan.',
+    title: 'Ofertas Primagas Hogar | Gas GPL donde no llega la red',
     verification: {
       google: settings.googleVerificationId,
     },
