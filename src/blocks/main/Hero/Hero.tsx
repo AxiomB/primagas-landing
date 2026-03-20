@@ -59,7 +59,7 @@ export const HeroBlockComponent: React.FC = ({
                 w-full md:w-1/2 h-20 px-6 rounded-full
             "
                         onClick={() => {
-                            router.push('/hogar', { scroll: false })
+                            router.push('/hogar?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}', { scroll: false })
                         }}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" className="w-20 h-20 shrink-0">
@@ -76,7 +76,7 @@ export const HeroBlockComponent: React.FC = ({
                     <button
                         className={"flex flex-row items-center justify-center gap-3 bg-brand hover:bg-red-700 text-white font-bold w-full md:w-1/2 h-20 px-6 rounded-full"}
                         onClick={() => {
-                            router.push('/negocio')
+                            router.push('/negocio?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}')
                         }}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" className="w-20 h-20 shrink-0">
                             <path

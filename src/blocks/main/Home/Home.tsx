@@ -64,7 +64,7 @@ export const HomeBlockComponent: React.FC = ({
                         <button
                             className="mt-6 bg-brand hover:bg-red-700 text-white px-6 h-12 rounded-full"
                             onClick={() => {
-                                router.push('/hogar?utm_source=landing&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}', { scroll: false })
+                                router.push('/hogar?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}', { scroll: false })
                             }}
                         >
                             <span className="text-white text-sm md:text-base">

@@ -12,17 +12,17 @@ export interface UtmData {
 }
 
 export const useUtms = () => {
-    const [utms, setUtms] = useState<UtmData | null>(null)
+    const [utms, setUtms] = useState<UtmData | null>(null);
 
     useEffect(() => {
-        const cookieValue = Cookies.get('utm_session')
+        const cookieValue = Cookies.get('utm_session');
 
         if (cookieValue) {
             try {
-                const parsed = JSON.parse(cookieValue) as UtmData
-                setUtms(parsed)
+                const parsed = JSON.parse(cookieValue) as UtmData;
+                setUtms(parsed);
             } catch (error) {
-                console.error('Error parsing UTM cookie:', error)
+                console.error('Error parsing UTM cookie:', error);
             }
         }
     }, [])

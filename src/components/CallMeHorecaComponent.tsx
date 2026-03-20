@@ -3,6 +3,7 @@ import { useUtms } from '@/hooks/useUtem';
 import { Check, ChevronRight, Phone } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
+import { returnUtmsToString } from './utils/utmsToString';
 
 export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNumber: string, defaultNumber: string }> = ({ facebookNumber, googleNumber, defaultNumber }: { facebookNumber: string, googleNumber: string, defaultNumber: string }) => {
 
@@ -39,6 +40,13 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
             })
 
             if (res.ok) {
+                let utmString = returnUtmsToString(utms);
+                if (utmString.length > 0) {
+                    router.push(pathname + '?modal=thankyouhoreca&' + utmString, { scroll: false });
+                }
+                else {
+                    router.push(pathname + '?modal=thankyouhoreca', { scroll: false });
+                }
                 router.push(pathname + '?modal=thankyouhoreca', { scroll: false })
             } else {
                 throw new Error()

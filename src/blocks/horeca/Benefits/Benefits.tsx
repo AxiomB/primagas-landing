@@ -8,7 +8,6 @@ export const BenefitsBlockComponent: React.FC = ({
     horecaBenefits,
 }: any) => {
 
-    console.log(horecaBenefits);
     const benefits = horecaBenefits || [];
 
     return (

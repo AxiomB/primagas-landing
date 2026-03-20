@@ -4,6 +4,7 @@ import { useUtms } from '@/hooks/useUtem';
 import { Check, ChevronRight } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
+import { returnUtmsToString } from './utils/utmsToString';
 
 export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, googleNumber: string, defaultNumber: string }> = ({ facebookNumber, googleNumber, defaultNumber }: { facebookNumber: string, googleNumber: string, defaultNumber: string }) => {
 
@@ -13,8 +14,6 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
     const [inputNumber, setInputNumber] = useState<string>("");
     const [accepted, setAccepted] = useState<boolean>(false);
     const [showTooltip, setShowTooltip] = useState<boolean>(false);
-
-    console.log(defaultNumber);
 
     useEffect(() => {
         if (showTooltip) {
@@ -42,6 +41,13 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
             })
 
             if (res.ok) {
+                let utmString = returnUtmsToString(utms);
+                if (utmString.length > 0) {
+                    router.push(pathname + '?modal=thankyoudomestic&' + utmString, { scroll: false });
+                }
+                else {
+                    router.push(pathname + '?modal=thankyoudomestic', { scroll: false });
+                }
                 router.push(pathname + '?modal=thankyoudomestic', { scroll: false })
             } else {
                 throw new Error()
