@@ -3,6 +3,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
+import { useUtms } from '@/hooks/useUtem';
+import { returnUtmsToString } from '@/components/utils/utmsToString';
 
 export const BusinessBlockComponent: React.FC = ({
     backgroundImage,
@@ -12,6 +14,18 @@ export const BusinessBlockComponent: React.FC = ({
 
 }: any) => {
     const router = useRouter();
+    const utms = useUtms();
+
+    const utmString = returnUtmsToString(utms);
+
+    const clickNegocio = () => {
+        if (utmString.length > 0) {
+            router.push('/negocio?' + utmString, { scroll: false });
+        }
+        else {
+            router.push('/negocio?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}')
+        }
+    }
 
     return (
         <section id="main-business" className="bg-[#fafafa] flex flex-col py-[5%]">
@@ -42,9 +56,7 @@ export const BusinessBlockComponent: React.FC = ({
                     >
                         <button
                             className="bg-brand hover:bg-red-700 text-white px-6 h-12 rounded-full"
-                            onClick={() => {
-                                router.push('/negocio?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}', { scroll: false })
-                            }}
+                            onClick={clickNegocio}
                         >
                             <span className="text-white text-sm md:text-base">
                                 Ver oferta para negocios

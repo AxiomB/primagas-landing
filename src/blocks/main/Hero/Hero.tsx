@@ -3,6 +3,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
+import { returnUtmsToString } from '@/components/utils/utmsToString';
+import { useUtms } from '@/hooks/useUtem';
 
 export const HeroBlockComponent: React.FC = ({
     backgroundImage,
@@ -12,6 +14,27 @@ export const HeroBlockComponent: React.FC = ({
 
 }: any) => {
     const router = useRouter();
+    const utms = useUtms();
+
+    const utmString = returnUtmsToString(utms);
+
+    const clickHogar = () => {
+        if (utmString.length > 0) {
+            router.push('/hogar?' + utmString, { scroll: false });
+        }
+        else {
+            router.push('/hogar?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}', { scroll: false })
+        }
+    }
+
+    const clickNegocio = () => {
+        if (utmString.length > 0) {
+            router.push('/negocio?' + utmString, { scroll: false });
+        }
+        else {
+            router.push('/negocio?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}')
+        }
+    }
 
     return (
         <section id="hero-header bg-grey/20">
@@ -58,9 +81,7 @@ export const HeroBlockComponent: React.FC = ({
                 bg-brand hover:bg-red-700 text-white font-bold
                 w-full md:w-1/2 h-20 px-6 rounded-full
             "
-                        onClick={() => {
-                            router.push('/hogar?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}', { scroll: false })
-                        }}
+                        onClick={clickHogar}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" className="w-20 h-20 shrink-0">
                             <path
@@ -75,9 +96,7 @@ export const HeroBlockComponent: React.FC = ({
 
                     <button
                         className={"flex flex-row items-center justify-center gap-3 bg-brand hover:bg-red-700 text-white font-bold w-full md:w-1/2 h-20 px-6 rounded-full"}
-                        onClick={() => {
-                            router.push('/negocio?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}')
-                        }}>
+                        onClick={clickNegocio}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" className="w-20 h-20 shrink-0">
                             <path
                                 d="m270.83 280.55-141.82-.02c-12.69 0-22.65-10.44-22.65-22.98v-88.96c0-12.69 9.95-22.97 22.59-23l29.58-.09c.34-2.38.11-4.43.16-6.56.27-11.07 9.06-19.5 20.13-19.48l43.03.05c10.92.01 19.47 8.73 19.54 19.62.01 2.15-.14 4.03.14 6.39l29.11.03c12.81.01 23 10.16 23 23.04v88.95c0 12.55-9.93 23.01-22.81 23.01Zm-42.55-135.04c.24-2.79.09-4.36.1-6.38.02-3.81-2.88-6.67-6.75-6.66l-43.67.08c-3.12 0-5.8 2.93-6.07 5.8-.23 2.52-.11 4.75.11 7.2l56.28-.03Zm-10.23 52.44c4.26.01 6.51 4.41 5.82 8.49l45.93.15c6.06.02 10.78-4.12 10.78-10.28l-.03-27.76c0-5.48-4.33-9.91-9.96-9.91H129.42c-5.63 0-9.87 4.49-9.89 9.92l-.11 27.8c-.02 5.39 4.07 10.12 9.66 10.12h47.06c-.79-4.57 1.98-8.63 6.34-8.62l35.56.09Zm-7.28 17.33c.37-1.99.35-3-.08-4.32h-21.26c-.39 1.47-.32 2.75-.02 4.32h21.37Zm59.84 4.49h-46.63c.14 2.75-.23 4.93-1.83 6.63-1.45 1.55-3.44 2.13-5.85 2.12l-34.25-.15c-4.3-.02-6.59-4.33-5.96-8.57h-45.06c-4.18 0-7.78-.56-11.6-2.22v39.99c.01 5.55 4.31 10.01 9.99 10.01l141.14-.04c5.88 0 10.04-4.79 10.02-10.38l-.11-39.57c-3.68 1.47-6.45 2.17-9.88 2.17Z"

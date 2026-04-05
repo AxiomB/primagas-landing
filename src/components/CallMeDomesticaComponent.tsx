@@ -14,6 +14,7 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
     const [inputNumber, setInputNumber] = useState<string>("");
     const [accepted, setAccepted] = useState<boolean>(false);
     const [showTooltip, setShowTooltip] = useState<boolean>(false);
+    const [calling, setCalling] = useState<boolean>(false);
 
     useEffect(() => {
         if (showTooltip) {
@@ -30,6 +31,8 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
 
         if (!inputNumber) return;
 
+        setCalling(true);
+
         try {
             const res = await fetch('/api/call', {
                 method: 'POST',
@@ -41,7 +44,7 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
             })
 
             if (res.ok) {
-                let utmString = returnUtmsToString(utms);
+                const utmString = returnUtmsToString(utms);
                 if (utmString.length > 0) {
                     router.push(pathname + '?modal=thankyoudomestic&' + utmString, { scroll: false });
                 }
@@ -52,8 +55,10 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
             } else {
                 throw new Error()
             }
+            setCalling(false);
         }
         catch (error) {
+            setCalling(false);
             console.error(error);
         }
     }
@@ -104,7 +109,7 @@ export const CallMeDomesticaComponent: React.FC<{ facebookNumber: string, google
 
                     <button
                         id="btn_llamadme_hogar"
-                        className={`w-full font-bold py-5 rounded-full flex flex-row items-center justify-center gap-2 transition-all active:scale-[0.98] ${accepted && inputNumber
+                        className={`w-full font-bold py-5 rounded-full flex flex-row items-center justify-center gap-2 transition-all active:scale-[0.98] ${accepted && inputNumber && !calling
                             ? 'bg-brand hover:bg-red-700 text-white shadow-lg'
                             : 'bg-brand text-white cursor-not-allowed'
                             }`}

@@ -34,7 +34,7 @@ export const SubfooterBlockComponent: React.FC = ({
                     </button>
                     {
                         activeModal ? <>
-                            <InterestedModal thankyouId='thankyoutexthoreca' closeModal={closeModal}></InterestedModal>
+                            <InterestedModal thankyouId='thankyouhoreca' closeModal={closeModal}></InterestedModal>
                         </> : ""}
                 </div>
             </div>

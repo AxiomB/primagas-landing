@@ -51,7 +51,7 @@ export const StepsBlockComponent: React.FC = ({
             </div>
             {
                 activeModal ? <>
-                    <InterestedModal thankyouId='thankyoutextdomestica' closeModal={closeModal}></InterestedModal>
+                    <InterestedModal thankyouId='thankyoudomestic' closeModal={closeModal}></InterestedModal>
                 </> : ""}
         </section>
     );

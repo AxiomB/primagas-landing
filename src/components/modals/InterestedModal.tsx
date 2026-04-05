@@ -18,6 +18,7 @@ export const InterestedModal: React.FC<InterestedModalProps> = ({ thankyouId, cl
     const [inputNumber, setInputNumber] = useState<string>("");
     const [accepted, setAccepted] = useState<boolean>(false);
     const [showTooltip, setShowTooltip] = useState<boolean>(false);
+    const [calling, setCalling] = useState<boolean>(false);
 
     useEffect(() => {
         if (showTooltip) {
@@ -34,6 +35,8 @@ export const InterestedModal: React.FC<InterestedModalProps> = ({ thankyouId, cl
 
         if (!inputNumber) return;
 
+        setCalling(true);
+
         try {
             const res = await fetch('/api/call', {
                 method: 'POST',
@@ -45,19 +48,21 @@ export const InterestedModal: React.FC<InterestedModalProps> = ({ thankyouId, cl
             })
 
             if (res.ok) {
-                let utmString = returnUtmsToString(utms);
+                const utmString = returnUtmsToString(utms);
                 if (utmString.length > 0) {
-                    router.push(pathname + '?modal=thankyoudomestic&' + utmString, { scroll: false });
+                    router.push(pathname + '?modal=' + thankyouId + '&' + utmString, { scroll: false });
                 }
                 else {
-                    router.push(pathname + '?modal=thankyoudomestic', { scroll: false });
+                    router.push(pathname + '?modal=' + thankyouId, { scroll: false });
                 }
                 closeModal();
             } else {
                 throw new Error('Failed to send number')
             }
+            setCalling(false);
         }
         catch (error) {
+            setCalling(false);
             console.error(error);
         }
     }
@@ -115,7 +120,10 @@ export const InterestedModal: React.FC<InterestedModalProps> = ({ thankyouId, cl
                             </label>
 
                             <button
-                                className={`w-1/2 mx-auto content-center justify-center font-bold py-5 rounded-full flex flex-row items-center justify-center gap-2 transition-all active:scale-[0.98] bg-brand hover:bg-brand text-white shadow-lg`}
+                                className={`w-1/2 mx-auto content-center justify-center font-bold py-5 rounded-full flex flex-row items-center justify-center gap-2 transition-all active:scale-[0.98] ${accepted && inputNumber && !calling
+                                    ? 'bg-brand hover:bg-red-700 text-white shadow-lg'
+                                    : 'bg-brand text-white cursor-not-allowed'
+                                    }`}
                                 onClick={sendNumber}
                             >
                                 <span className='text-xl'>Llamadme</span>

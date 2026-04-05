@@ -3,6 +3,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
+import { useUtms } from '@/hooks/useUtem';
+import { returnUtmsToString } from '@/components/utils/utmsToString';
 
 export const HomeBlockComponent: React.FC = ({
     backgroundImage,
@@ -12,6 +14,18 @@ export const HomeBlockComponent: React.FC = ({
 
 }: any) => {
     const router = useRouter();
+    const utms = useUtms();
+
+    const utmString = returnUtmsToString(utms);
+
+    const clickHogar = () => {
+        if (utmString.length > 0) {
+            router.push('/hogar?' + utmString, { scroll: false });
+        }
+        else {
+            router.push('/hogar?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}', { scroll: false })
+        }
+    }
 
     return (
         <section id="main-home" className="bg-grey/20 flex flex-col py-[5%]">
@@ -63,9 +77,7 @@ export const HomeBlockComponent: React.FC = ({
                     >
                         <button
                             className="mt-6 bg-brand hover:bg-red-700 text-white px-6 h-12 rounded-full"
-                            onClick={() => {
-                                router.push('/hogar?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}', { scroll: false })
-                            }}
+                            onClick={clickHogar}
                         >
                             <span className="text-white text-sm md:text-base">
                                 Ver oferta para hogares
