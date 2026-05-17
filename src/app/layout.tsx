@@ -2,12 +2,8 @@ import React, { Suspense } from 'react'
 import '@/styles/global.css';
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
-import Script from 'next/script'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Metadata } from 'next'
-import { ModalController } from '@/components/ModalController';
-import { HeaderComponent } from '@/components/Header';
-import { FooterDomesticaComponent } from '@/components/FooterDomestica';
 
 export async function generateMetadata(): Promise<Metadata> {
   const payload = await getPayload({ config: configPromise })
@@ -28,15 +24,15 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const settings = await payload.findGlobal({ slug: 'site-settings' })
 
   return (
-    <>
-      <HeaderComponent></HeaderComponent>
-      <main className="w-full">
+    <html lang="en">
+      <head>
+        <meta name="facebook-domain-verification" content="zsuievznxnus9u8sdp7xhm7zb00xrh" />
+        <link rel="icon" href="/favicon.ico" sizes="48x48"></link>
+      </head>
+      {settings.gtmId && <GoogleTagManager gtmId={settings.gtmId} />}
+      <body className='overflow-x-hidden'>
         {children}
-      </main>
-      <FooterDomesticaComponent></FooterDomesticaComponent>
-      <Suspense fallback={null}>
-        <ModalController />
-      </Suspense>
-    </>
+      </body>
+    </html>
   )
 }

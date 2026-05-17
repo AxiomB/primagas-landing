@@ -1,9 +1,11 @@
 'use client'
+
 import { useUtms } from '@/hooks/useUtem';
 import { Check, ChevronRight, Phone } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { returnUtmsToString } from './utils/utmsToString';
+import { setPhoneInWindowForAnalytics } from '../utils/setPhoneInWindow';
 
 export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNumber: string, defaultNumber: string }> = ({ facebookNumber, googleNumber, defaultNumber }: { facebookNumber: string, googleNumber: string, defaultNumber: string }) => {
 
@@ -30,7 +32,11 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
 
         if (!inputNumber) return;
 
+        if (calling) return;
+
         setCalling(true);
+
+        setPhoneInWindowForAnalytics(inputNumber);
 
         try {
             const res = await fetch('/api/call', {

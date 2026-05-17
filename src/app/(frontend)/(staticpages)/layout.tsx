@@ -10,6 +10,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="facebook-domain-verification" content="zsuievznxnus9u8sdp7xhm7zb00xrh" />
+      </head>
       <body>{children}</body>
     </html>
   )

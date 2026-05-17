@@ -64,7 +64,7 @@ export const HomeBlockComponent: React.FC = ({
                             Calefacción, agua caliente y cocina con un suministro estable.*
                         </li>
                         <li className="text-xl">
-                            Instalación del depósito incluida dentro de la oferta*.
+                            Instalación del depósito incluida dentro de la oferta.*
                         </li>
                         <li className="text-xl">
                             La tranquilidad de contar con un proveedor con 30 años de experiencia en zonas rurales.

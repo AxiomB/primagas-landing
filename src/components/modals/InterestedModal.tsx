@@ -5,6 +5,7 @@ import { Check, ChevronRight, X } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { returnUtmsToString } from '../utils/utmsToString';
+import { setPhoneInWindowForAnalytics } from '@/utils/setPhoneInWindow';
 
 interface InterestedModalProps {
     thankyouId: string
@@ -35,7 +36,11 @@ export const InterestedModal: React.FC<InterestedModalProps> = ({ thankyouId, cl
 
         if (!inputNumber) return;
 
+        if (calling) return;
+
         setCalling(true);
+
+        setPhoneInWindowForAnalytics(inputNumber)
 
         try {
             const res = await fetch('/api/call', {
