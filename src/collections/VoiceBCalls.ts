@@ -14,6 +14,24 @@ export const VoiceBCalls: CollectionConfig = {
             required: true
         },
         {
+            name: 'apiKey',
+            type: 'text',
+            defaultValue: '',
+            required: true
+        },
+        {
+            name: 'signature',
+            type: 'text',
+            defaultValue: '',
+            required: true
+        },
+        {
+            name: 'requestBody',
+            type: 'text',
+            defaultValue: '',
+            required: true
+        },
+        {
             name: 'result',
             type: 'text',
             required: true

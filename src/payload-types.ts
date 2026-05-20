@@ -297,6 +297,9 @@ export interface Voicebcall {
   id: number;
   channel: string;
   phone: string;
+  apiKey: string;
+  signature: string;
+  requestBody: string;
   result: string;
   updatedAt: string;
   createdAt: string;
@@ -533,6 +536,9 @@ export interface DomesticstepsSelect<T extends boolean = true> {
 export interface VoicebcallsSelect<T extends boolean = true> {
   channel?: T;
   phone?: T;
+  apiKey?: T;
+  signature?: T;
+  requestBody?: T;
   result?: T;
   updatedAt?: T;
   createdAt?: T;

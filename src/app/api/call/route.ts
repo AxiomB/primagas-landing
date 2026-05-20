@@ -25,29 +25,26 @@ export async function POST(req: Request) {
         return NextResponse.json({ message: "ok" });
     }
     else {
+        let apiKey: string = "";
+        let signature: string = "";
+        const body = {
+            phone: cleanPhone,
+        };
+        const textBody = JSON.stringify(body);
+
+        if (channel === "meta") {
+            apiKey = process.env.FACEBOOK_OUT_API_KEY ? process.env.FACEBOOK_OUT_API_KEY : "";
+            signature = process.env.FACEBOOK_OUT_API_SECRET ? generateSignature(process.env.FACEBOOK_OUT_API_SECRET, textBody) : "";
+        }
+        else if (channel === "google") {
+            apiKey = process.env.GOOGLE_OUT_API_KEY ? process.env.GOOGLE_OUT_API_KEY : "";
+            signature = process.env.GOOGLE_OUT_API_SECRET ? generateSignature(process.env.GOOGLE_OUT_API_SECRET, textBody) : "";
+        }
+        else {
+            apiKey = process.env.DEFAULT_OUT_API_KEY ? process.env.DEFAULT_OUT_API_KEY : "";
+            signature = process.env.DEFAULT_OUT_API_SECRET ? generateSignature(process.env.DEFAULT_OUT_API_SECRET, textBody) : "";
+        }
         try {
-
-            let apiKey: string = "";
-            let signature: string = "";
-
-            const body = {
-                phone: cleanPhone,
-            };
-            const textBody = JSON.stringify(body);
-
-            if (channel === "meta") {
-                apiKey = process.env.FACEBOOK_OUT_API_KEY ? process.env.FACEBOOK_OUT_API_KEY : "";
-                signature = process.env.FACEBOOK_OUT_API_SECRET ? generateSignature(process.env.FACEBOOK_OUT_API_SECRET, textBody) : "";
-            }
-            else if (channel === "google") {
-                apiKey = process.env.GOOGLE_OUT_API_KEY ? process.env.GOOGLE_OUT_API_KEY : "";
-                signature = process.env.GOOGLE_OUT_API_SECRET ? generateSignature(process.env.GOOGLE_OUT_API_SECRET, textBody) : "";
-            }
-            else {
-                apiKey = process.env.DEFAULT_OUT_API_KEY ? process.env.DEFAULT_OUT_API_KEY : "";
-                signature = process.env.DEFAULT_OUT_API_SECRET ? generateSignature(process.env.DEFAULT_OUT_API_SECRET, textBody) : "";
-            }
-
             const response = await fetch(endpoint, {
                 method: 'POST',
                 headers: {
@@ -62,7 +59,7 @@ export async function POST(req: Request) {
 
             await payload.create({
                 collection: 'voicebcalls',
-                data: { channel, phone: cleanPhone, result: await response.text() },
+                data: { channel, phone: cleanPhone, apiKey, signature, requestBody: textBody, result: await response.text() },
             });
 
             return NextResponse.json({ message: response.json() });
@@ -70,7 +67,7 @@ export async function POST(req: Request) {
         catch (error) {
             await payload.create({
                 collection: 'voicebcalls',
-                data: { channel, phone: cleanPhone, result: error as string },
+                data: { channel, phone: cleanPhone, apiKey, signature, requestBody: textBody, result: error as string },
             });
             return NextResponse.json({ message: error });
         }
