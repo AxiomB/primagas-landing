@@ -4,6 +4,7 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Metadata } from 'next'
+import Script from 'next/script';
 
 export async function generateMetadata(): Promise<Metadata> {
   const payload = await getPayload({ config: configPromise })

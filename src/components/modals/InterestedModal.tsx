@@ -29,6 +29,30 @@ export const InterestedModal: React.FC<InterestedModalProps> = ({ thankyouId, cl
         }
     }, [showTooltip]);
 
+    useEffect(() => {
+        function handleHubspotSuccess(event: Event) {
+            const customEvent = event as CustomEvent;
+            const { formId, instanceId } = customEvent.detail ?? {};
+
+            window.dataLayer = window.dataLayer || [];
+            (window.dataLayer as unknown[]).push({
+                event: 'form_gracias_hogar_v2',
+                form_id: formId,
+                instance_id: instanceId,
+                utm_source: utms?.utm_source ?? null,
+            });
+            (window.dataLayer as unknown[]).push({
+                event: 'btn_llamadme_negocio_v2',
+                form_id: formId,
+                instance_id: instanceId,
+                utm_source: utms?.utm_source ?? null,
+            });
+        }
+
+        window.addEventListener('hs-form-event:on-submission:success', handleHubspotSuccess);
+        return () => window.removeEventListener('hs-form-event:on-submission:success', handleHubspotSuccess);
+    }, [utms]);
+
     const sendNumber = async () => {
         if (!accepted) {
             setShowTooltip(true);

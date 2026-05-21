@@ -25,6 +25,30 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
         }
     }, [showTooltip]);
 
+    useEffect(() => {
+        function handleHubspotSuccess(event: Event) {
+            const customEvent = event as CustomEvent;
+            const { formId, instanceId } = customEvent.detail ?? {};
+
+            window.dataLayer = window.dataLayer || [];
+            (window.dataLayer as unknown[]).push({
+                event: 'form_gracias_hogar_v2',
+                form_id: formId,
+                instance_id: instanceId,
+                utm_source: utms?.utm_source ?? null,
+            });
+            (window.dataLayer as unknown[]).push({
+                event: 'btn_llamadme_negocio_v2',
+                form_id: formId,
+                instance_id: instanceId,
+                utm_source: utms?.utm_source ?? null,
+            });
+        }
+
+        window.addEventListener('hs-form-event:on-submission:success', handleHubspotSuccess);
+        return () => window.removeEventListener('hs-form-event:on-submission:success', handleHubspotSuccess);
+    }, [utms]);
+
     const sendNumber = async () => {
         if (!accepted) {
             setShowTooltip(true);
@@ -80,7 +104,7 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
             <div className="p-4">
                 <div className="flex items-start gap-4">
                     <div className="bg-red-50 pt-1 pb-3 px-4 mx-2 rounded-full">
-                        <img className='w-24 h-12' src='/assets/horeca/icon-phone.png'></img>
+                        <img className='w-24 md:w-22 h-12' src='/assets/horeca/icon-phone.png'></img>
                     </div>
                     <div>
                         <p className="text-lg text-dark leading-tight">Déjanos tus datos y un agente contactará contigo en el menor tiempo posible</p>
