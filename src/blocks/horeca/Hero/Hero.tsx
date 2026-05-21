@@ -17,7 +17,7 @@ export const HeroBlockComponent: React.FC = ({
 }: any) => {
     return (
         <section id="hero-header">
-            <section className="relative mb-[2rem] md:mb-0 min-h-[600px] flex items-center overflow-hidden">
+            <section className="relative mb-[2rem] md:mb-0 min-h-[600px] flex items-center overflow-hidden pt-12 pb-12">
                 <div className="absolute w-full h-full lg:h-[100dvh] z-0">
                     <img
                         src={backgroundImage.url}
@@ -27,7 +27,7 @@ export const HeroBlockComponent: React.FC = ({
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent" />
                 </div>
-                <div className="relative z-10 mx-6 md:mx-20 lg:mx-40 w-full flex flex-col md:flex-row md:items-center md:justify-between gap-10">
+                <div className="relative z-10 mx-6 md:mx-20 w-full flex flex-col md:flex-row md:items-center md:justify-between gap-8 min-w-0">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -42,17 +42,9 @@ export const HeroBlockComponent: React.FC = ({
                         </p>
                     </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="flex-shrink-0 flex justify-center md:justify-end mr-0 md:mr-[15%] lg:mr-[15%] md:ml-auto"
-                    >
-                        <div className="w-full max-w-sm bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
-                            <CallMeHorecaComponent facebookNumber={facebooknumber} googleNumber={googlenumber} defaultNumber={defaultnumber} />
-                        </div>
-                    </motion.div>
+                    <div className="w-full max-w-sm md:max-w-[42dvw] bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.00] transition-transform duration-300 mx-auto md:ml-auto md:mr-0 shrink-0">
+                        <CallMeHorecaComponent facebookNumber={facebooknumber} googleNumber={googlenumber} defaultNumber={defaultnumber} />
+                    </div>
                 </div>
             </section>
             <section className="grid md:grid-cols-2">

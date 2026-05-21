@@ -79,15 +79,15 @@ export const CallMeHorecaComponent: React.FC<{ facebookNumber: string, googleNum
 
             <div className="p-4">
                 <div className="flex items-start gap-4">
-                    <div className="bg-red-50 pt-1 pb-3 px-3 rounded-full">
-                        <img className='w-14 h-12' src='/assets/horeca/icon-phone.png'></img>
+                    <div className="bg-red-50 pt-1 pb-3 px-4 mx-2 rounded-full">
+                        <img className='w-24 h-12' src='/assets/horeca/icon-phone.png'></img>
                     </div>
                     <div>
-                        <p className="text-lg text-dark leading-tight">O Déjanos tu número<br></br> <span className='font-bold'>y te llamamos en<br></br> unos minutos</span></p>
+                        <p className="text-lg text-dark leading-tight">Déjanos tus datos y un agente contactará contigo en el menor tiempo posible</p>
                     </div>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-0">
                     <Script src="https://js.hsforms.net/forms/embed/5603597.js" defer></Script>
                     <div className="hs-form-frame" data-region="na1" data-form-id="28264d9e-2895-4820-8511-5f201aa66247"
                         data-portal-id="5603597"></div>

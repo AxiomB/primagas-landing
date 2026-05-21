@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { returnUtmsToString } from '../utils/utmsToString';
 import { setPhoneInWindowForAnalytics } from '@/utils/setPhoneInWindow';
+import Script from 'next/script';
 
 interface InterestedModalProps {
     thankyouId: string
@@ -91,51 +92,9 @@ export const InterestedModal: React.FC<InterestedModalProps> = ({ thankyouId, cl
                 </div>
 
                 <div className="flex-1 overflow-y-auto p-8 text-slate-600 leading-relaxed rounded-2xl custom-scrollbar">
-                    <div className="max-w-xl mx-auto py-4">
-                        <div className="flex content-center justify-center items-center gap-6 mb-8">
-                            <div>
-                                <p className="text-xl text-dark text-center leading-tight">
-                                    Déjanos tu número <br></br> <span className='font-bold'>y te llamamos en unos minutos</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div className="space-y-6">
-                            <input
-                                type="tel"
-                                placeholder="Introduce tu número*"
-                                className="text-dark w-full px-5 py-4 text-lg text-center justify-center border border-dark rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all shadow-sm"
-                                value={inputNumber}
-                                onChange={(e) => setInputNumber(e.target.value)}
-                            />
-
-                            <label className={`flex items-start justify-center gap-3 cursor-pointer group transition-transform ${showTooltip ? 'animate-bounce text-red-600' : ''}`}>
-                                <button
-                                    type="button"
-                                    className={`w-6 h-6 shrink-0 rounded border flex items-center justify-center transition-colors ${accepted ? 'bg-brand border-brand' : 'border-gray-300 group-hover:border-red-400'} ${showTooltip ? 'border-red-500 ring-2 ring-red-100' : ''}`}
-                                    onClick={() => {
-                                        setAccepted(!accepted);
-                                        setShowTooltip(false);
-                                    }}
-                                >
-                                    {accepted && <Check className="w-4 h-4 text-white" strokeWidth={3} />}
-                                </button>
-                                <span className={`text-sm leading-snug ${showTooltip ? 'text-red-600 font-bold' : 'text-gray-500'}`}>
-                                    Acepto la <a href="?modal=privacy" className="underline font-medium hover:text-brand">política de privacidad</a> y <a href="?modal=legal" className="underline font-medium hover:text-brand">aviso legal</a>.
-                                </span>
-                            </label>
-
-                            <button
-                                className={`w-1/2 mx-auto content-center justify-center font-bold py-5 rounded-full flex flex-row items-center justify-center gap-2 transition-all active:scale-[0.98] ${accepted && inputNumber && !calling
-                                    ? 'bg-brand hover:bg-red-700 text-white shadow-lg'
-                                    : 'bg-brand text-white cursor-not-allowed'
-                                    }`}
-                                onClick={sendNumber}
-                            >
-                                <span className='text-xl'>Llamadme</span>
-                                <ChevronRight className="w-6 h-6" />
-                            </button>
-                        </div>
-                    </div>
+                    <Script src="https://js.hsforms.net/forms/embed/5603597.js" defer></Script>
+                    <div className="hs-form-frame" data-region="na1" data-form-id="28264d9e-2895-4820-8511-5f201aa66247"
+                        data-portal-id="5603597"></div>
                 </div>
             </div>
         </div>
